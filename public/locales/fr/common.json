@@ -1,3 +1,13 @@
 {
-  "about": "Passionné par le développement web depuis mon plus jeune âge. Je maîtrise diverses technologies qui me permettent de concevoir et développer un site web dans sa totalité. Je travaille et apprend constamment pour améliorer mes compétences et satisfaire ma soif de connaissances."
+  "header": {
+    "nav": {
+      "home": "À propos",
+      "blog": "Blog",
+      "contact": "Contactez-moi"
+    }
+  },
+  "hero": {
+    "hi": "Salut,\nJe suis {{name}},\nun développeur web",
+    "desc": "Développeur Full Stack / Expert React"
+  }
 }
