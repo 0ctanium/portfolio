@@ -1,4 +1,12 @@
 {
+  "hero": {
+    "hi": [
+      "Salut,",
+      "je suis <1>{{name}}</1>,",
+      "un développeur web"
+    ],
+    "desc": "Full Stack Developer / React Expert"
+  },
   "about": {
     "title": "À props de moi",
     "text": "Passionné par le développement web depuis mon plus jeune âge. Je maîtrise diverses technologies qui me permettent de concevoir et développer un site web dans sa totalité. Je travaille et apprend constamment pour améliorer mes compétences et satisfaire ma soif de connaissances."

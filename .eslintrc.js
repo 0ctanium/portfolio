@@ -8,6 +8,7 @@ module.exports = {
   ],
   plugins: ['@typescript-eslint', 'react', 'jsx-a11y'],
   rules: {
+    'jsx-a11y/anchor-is-valid': 0,
     '@typescript-eslint/no-var-requires': 0,
     '@typescript-eslint/explicit-function-return-type': 0,
     '@typescript-eslint/no-explicit-any': 0,

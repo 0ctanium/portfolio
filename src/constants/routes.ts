@@ -1,3 +1,5 @@
+import { RoutesByUrl, RouteUrl } from '@src/types';
+
 const routes = {
   home: '/',
   blog: '/blog',
@@ -5,7 +7,7 @@ const routes = {
   project: '/project',
 };
 
-const routesByUrl = Object.entries(routes).reduce(
+const routesByUrl: RoutesByUrl = Object.entries(routes).reduce(
   (acc, [key, route]) => ({
     ...acc,
     [route]: key,

@@ -2,9 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  h1 {
+    @apply text-7xl font-display font-black ;
+  }
+
+  h2 {
+    @apply text-4xl font-display font-bold;
+  }
+
+  h3 {
+    @apply text-3xl font-display font-bold;
+  }
+
+  h5 {
+    @apply text-lg font-body font-bold;
+  }
+
+  p {
+    @apply text-base font-normal font-body;
+  }
+}
+
 @layer utilities {
   .text-gradient {
     background-clip: text;
     -webkit-text-fill-color: transparent;
+  }
+
+  .stroke-1 path {
+    stroke-width: 1;
   }
 }
