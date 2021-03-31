@@ -49,6 +49,8 @@ const Social: React.FC<SocialProps> = ({ link, src, alt }) => (
   <a
     title={alt}
     href={link}
+    rel="noreferrer"
+    target="_blank"
     className="w-10 h-10 border border-white flex justify-center items-center rounded-full mr-4 last:mr-0">
     <img src={src} alt={alt} className="w-5 h-5" width="20" height="20" />
   </a>
