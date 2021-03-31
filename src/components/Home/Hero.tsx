@@ -1,12 +1,13 @@
 import React, { useCallback } from 'react';
 import { Trans, useTranslation } from 'next-i18next';
+import OverlayScrollbarsModule from 'overlayscrollbars';
 import { HiArrowDown } from 'react-icons/hi';
 
 const Hero: React.FC = () => {
   const { t } = useTranslation('home');
 
   const scrollDown = useCallback(() => {
-    const instance = OverlayScrollbars(document.body);
+    const instance = OverlayScrollbarsModule(document.body);
 
     instance.scrollStop().scroll(
       {

@@ -7,14 +7,14 @@ import '@src/tailwind.css';
 import { appWithTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 
-import OverlayScrollbars from 'overlayscrollbars';
+import OverlayScrollbarsModule from 'overlayscrollbars';
 import 'overlayscrollbars/css/OverlayScrollbars.css';
 
 function App({ Component, pageProps }: AppProps): JSX.Element {
   const { locale } = useRouter();
 
   useEffect(() => {
-    const instance = OverlayScrollbars(document.body, {
+    const instance = OverlayScrollbarsModule(document.body, {
       nativeScrollbarsOverlaid: {
         initialize: false,
       },
