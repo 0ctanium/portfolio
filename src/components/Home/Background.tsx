@@ -43,7 +43,7 @@ const Background: React.FC<BackgroundProps> = ({ timeline }) => {
         newFilters.push(tag);
       }
 
-      setFilter((prevState) => [...new Set(newFilters)]);
+      setFilter([...new Set(newFilters)]);
     },
     [filters]
   );
@@ -105,7 +105,7 @@ const Background: React.FC<BackgroundProps> = ({ timeline }) => {
           <div
             id="timeline"
             ref={ref}
-            className="overflow-y-scroll overflow-x-visible hide-scrollbar flex flex-col my-4 py-4 px-16"
+            className="overflow-y-scroll overflow-x-visible hide-scrollbar flex flex-col my-4 py-4 px-16 pr-4 mr-12"
             style={{ height: 500 }}>
             <div className="absolute left-6 inset-y-0 lg:left-1/2 lg:-translate-y-1/2 h-full flex justify-center z-10">
               {/* scroll top button */}
@@ -184,7 +184,7 @@ const TimelineEventCard: React.FC<TimelineEventCardProps> = ({
       )}>
       <div className="hidden lg:block order-1 w-5/12" />
 
-      <div className="absolute -left-12.5 lg:relative lg:left-0 lg:transform-none z-0 flex items-center order-1 bg-gray-600 shadow-xl w-6 h-6 rounded-full" />
+      <div className="absolute -left-13 lg:relative lg:left-0 lg:transform-none z-0 flex items-center order-1 bg-gray-600 shadow-xl w-6 h-6 rounded-full" />
 
       <div className="order-1 w-full lg:w-5/12">
         <span className="capitalize">

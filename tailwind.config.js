@@ -13,7 +13,7 @@ module.exports = {
         38: '9.5rem',
       },
       inset: {
-        '-12.5': '-3.125rem',
+        '-13': '-3.25rem',
       },
       borderWidth: {
         6: '6px',
