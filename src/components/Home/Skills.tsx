@@ -249,7 +249,13 @@ const CircleSkill: React.FC<Skill> = ({ url, label, color, percent }) => {
         </div>
         <div className="w-full h-full flex items-center justify-center border-6 border-gray-800 rounded-full relative mb-2">
           <picture>
-            <img src={url} alt={label} className="w-8 h-8" />
+            <img
+              src={url}
+              alt={label}
+              className="w-8 h-8"
+              height="32"
+              width="32"
+            />
           </picture>
         </div>
       </div>
@@ -287,6 +293,8 @@ const SkillBar: React.FC<SkillBarProps> = ({
             src={url}
             alt={label}
             className={clsx(small ? 'w-8 h-8' : 'w-10 h-10')}
+            width={small ? '32' : '40'}
+            height={small ? '32' : '40'}
           />
         </picture>
       </div>

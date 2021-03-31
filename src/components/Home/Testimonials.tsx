@@ -15,6 +15,8 @@ const Testimonials: React.FC = () => {
             src="/static/testimonials/avatar.png"
             alt="avatar"
             className="rounded-full w-24 h-24 mb-4"
+            width="96"
+            height="96"
           />
         </picture>
         <p className="font-bold text-lg mb-2">Pierre</p>

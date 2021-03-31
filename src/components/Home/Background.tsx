@@ -76,6 +76,7 @@ const Background: React.FC<BackgroundProps> = ({ timeline }) => {
           <div>
             {/* scroll top button */}
             <button className="absolute-x-center z-20 paper shadow-lg rounded-full top-0 flex items-center justify-center">
+              <span className="sr-only">Scroller en haut de la timeline</span>
               <HiChevronUp className="w-8 h-8 text-gray-800" />
             </button>
             {/* bar */}
@@ -88,6 +89,7 @@ const Background: React.FC<BackgroundProps> = ({ timeline }) => {
               }}
             />
             <button className="absolute-x-center z-20 paper shadow-lg rounded-full bottom-0 flex items-center justify-center">
+              <span className="sr-only">Scroller en bas de la timeline</span>
               <HiChevronDown className="w-8 h-8 text-gray-800" />
             </button>
           </div>

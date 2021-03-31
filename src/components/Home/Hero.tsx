@@ -20,7 +20,7 @@ const Hero: React.FC = () => {
   return (
     <section
       id="hero"
-      className="relative max-w-screen min-h-screen py-32 bg-gray-300">
+      className="relative max-w-screen min-h-screen py-32 bg-gray-200">
       <div className="container mx-auto">
         <h1 className="text-gray-800 mb-4">
           <Trans
@@ -39,7 +39,7 @@ const Hero: React.FC = () => {
             , a web developer
           </Trans>
         </h1>
-        <p className="text-xl font-light font-sans text-gray-500">
+        <p className="text-xl font-light font-sans text-gray-600">
           {t('hero.desc')}
         </p>
       </div>
