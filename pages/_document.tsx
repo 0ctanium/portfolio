@@ -20,7 +20,10 @@ class MyDocument extends Document {
           />
           <link rel="stylesheet" href="https://use.typekit.net/cri2dli.css" />
         </Head>
-        <body>
+        <body
+          className={
+            process.env.NODE_ENV === 'development' ? 'debug-screens' : ''
+          }>
           <Main />
           <NextScript />
         </body>

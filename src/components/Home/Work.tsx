@@ -8,7 +8,7 @@ const Works: React.FC = () => {
   return (
     <section id="work" className="mb-24 text-center">
       <h2 className="text-gray-800 mb-16">{t('works.title')}</h2>
-      <div className="mx-auto inline-grid grid-cols-2 gap-6">
+      <div className="mx-auto inline-grid grid-cols-1 sm:grid-cols-2 gap-6">
         <Work label="Isimmo" url="/static/work/isimmo.jpg" />
         <Work label="Isimmo" url="/static/work/isimmo.jpg" />
         <Work label="Isimmo" url="/static/work/isimmo.jpg" />

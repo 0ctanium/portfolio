@@ -14,13 +14,11 @@ function App({ Component, pageProps }: AppProps): JSX.Element {
   const { locale } = useRouter();
 
   useEffect(() => {
-    const instance = OverlayScrollbarsModule(document.body, {
+    OverlayScrollbarsModule(document.body, {
       nativeScrollbarsOverlaid: {
         initialize: false,
       },
     });
-
-    console.log(instance);
   }, []);
 
   return (

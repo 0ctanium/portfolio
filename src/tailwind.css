@@ -9,7 +9,7 @@
   }
 
   h1 {
-    @apply text-7xl font-display font-black ;
+    @apply text-6xl md:text-7xl font-display font-black ;
   }
 
   h2 {
@@ -32,6 +32,14 @@
 @layer components {
   .paper {
     @apply bg-gray-50 shadow-md border border-gray-100;
+  }
+
+  .paper-btn {
+    @apply transition duration-200 hover:shadow-lg hover:bg-gray-100 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-opacity-70 focus:ring-gray-300;
+  }
+
+  .btn {
+    @apply border-2 border-blue-700 rounded-full text-base text-blue-700 font-sans font-medium py-2 px-5 hover:bg-blue-700 hover:text-white transition duration-300;
   }
 
   .progress-wrapper {
@@ -71,6 +79,22 @@
 }
 
 @layer utilities {
+  @responsive {
+    .absolute-center {
+      @apply absolute transform;
+    }
+
+    .absolute-x-center {
+      @apply absolute-center left-1/2;
+      --tw-translate-x: -50% !important;
+    }
+
+    .absolute-y-center {
+      @apply absolute-center top-1/2;
+      --tw-translate-y: -50% !important;
+    }
+  }
+
   .text-gradient {
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -81,20 +105,6 @@
   }
   .stroke-2 path {
     stroke-width: 2;
-  }
-
-  .absolute-center {
-    @apply absolute transform;
-  }
-
-  .absolute-x-center {
-    @apply absolute-center left-1/2;
-    --tw-translate-x: -50% !important;
-  }
-
-  .absolute-y-center {
-    @apply absolute-center top-1/2;
-    --tw-translate-y: -50% !important;
   }
 
   .hide-scrollbar {

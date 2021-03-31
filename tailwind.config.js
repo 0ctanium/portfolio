@@ -12,8 +12,14 @@ module.exports = {
       spacing: {
         38: '9.5rem',
       },
+      inset: {
+        '-12.5': '-3.125rem',
+      },
       borderWidth: {
         6: '6px',
+      },
+      animation: {
+        'spin-slow': 'spin 3s linear infinite',
       },
     },
   },
@@ -24,5 +30,5 @@ module.exports = {
       borderColor: ['hover'],
     },
   },
-  plugins: [],
+  plugins: [require('tailwindcss-debug-screens')],
 };

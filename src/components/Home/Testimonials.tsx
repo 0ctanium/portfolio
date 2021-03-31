@@ -5,7 +5,7 @@ const Testimonials: React.FC = () => {
   const { t } = useTranslation('home');
 
   return (
-    <section id="work" className="mb-24">
+    <section id="work" className="mb-24 mx-auto container px-10">
       <h2 className="text-gray-800 mb-16 text-center">
         {t('testimonials.title')}
       </h2>

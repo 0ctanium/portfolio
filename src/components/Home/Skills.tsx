@@ -9,10 +9,12 @@ const Skills: React.FC = () => {
   const { t } = useTranslation('home');
 
   return (
-    <section id="skills" className="mx-auto w-full max-w-screen-md mb-24">
+    <section
+      id="skills"
+      className="px-10 lg:px-0 mx-auto lg:max-w-screen-md mb-24">
       <h2 className="text-gray-800 mb-16 text-center">{t('skills.title')}</h2>
-      <div className="grid grid-cols-2 gap-10">
-        <div>
+      <div className="lg:grid lg:grid-cols-2 lg:gap-10">
+        <div className="mb-6 lg:mb-0">
           <div className="flex flex-row justify-center items-center mb-8">
             <HiOutlineDesktopComputer className="w-8 h-8 text-blue-800 stroke-1 mr-3" />
             <h5 className="text-gray-800">{t('skills.front')}</h5>
@@ -76,7 +78,7 @@ const Skills: React.FC = () => {
           </div>
         </div>
 
-        <div>
+        <div className="mb-6 lg:mb-0">
           <div className="flex flex-row justify-center items-center mb-8">
             <HiOutlineCode className="w-8 h-8 text-blue-800 stroke-1 mr-3" />
             <h5 className="text-gray-800">{t('skills.back')}</h5>
@@ -144,9 +146,9 @@ const Skills: React.FC = () => {
           </div>
         </div>
 
-        <div className="col-span-2">
+        <div className="col-span-2 mb-6 lg:mb-0">
           <h5 className="text-gray-800 mb-8">{t('skills.other')}</h5>
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center flex-wrap">
             <CircleSkill
               url="/static/linux.svg"
               label="Linux/GNU"
@@ -191,11 +193,11 @@ const Skills: React.FC = () => {
             />
           </div>
         </div>
-        <div className="mx-auto col-span-2">
-          <h5 className="text-center text-lg text-gray-800 mb-6">
+        <div className="mx-auto col-span-2 mb-12 lg:mb-0 text-center">
+          <h5 className="text-lg text-gray-800 mb-6">
             {t('skills.soft.title')}
           </h5>
-          <ul className="font-semibold text-base text-gray-800">
+          <ul className="font-semibold text-base text-gray-800 inline-block">
             <li className="flex items-center mb-3 last:mb-0">
               <AiOutlineHourglass className="w-6 h-6 text-blue-800 stroke-2 mr-3" />{' '}
               {t('skills.soft.skills.patient')}
@@ -225,7 +227,7 @@ interface Skill {
 
 const CircleSkill: React.FC<Skill> = ({ url, label, color, percent }) => {
   return (
-    <div className="flex-grow flex flex-col justify-center items-center">
+    <div className="flex-grow flex flex-col justify-center items-center mb-6">
       <div className="block relative h-16 w-16">
         <div className="progress-wrapper absolute" style={{ color: color }}>
           <div className="progress-left">

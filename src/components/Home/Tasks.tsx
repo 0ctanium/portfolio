@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 import { useTranslation } from 'next-i18next';
 import {
   HiBookOpen,
@@ -8,18 +8,20 @@ import {
 } from 'react-icons/hi';
 import { FaPaintBrush } from 'react-icons/fa';
 import { IconType } from 'react-icons';
+import clsx from 'clsx';
 
 const Tasks: React.FC = () => {
   const { t } = useTranslation('home');
 
   return (
     <section id="work" className="mb-24">
-      <div className="shadow bg-white border border-gray-200 max-w-2xl w-full mx-auto rounded overflow-hidden text-center">
+      <div className="shadow-lg sm:shadow bg-white border border-gray-200 w-full max-w-2xl mx-auto rounded overflow-hidden text-center">
         <h3 className="py-4 border-b border-gray-200 text-gray-800">
           {t('work.title')}
         </h3>
-        <div className="grid grid-cols-2">
+        <div className="sm:grid sm:grid-cols-2">
           <Skill
+            className="border-b sm:border-b-0 sm:border-r border-gray-200"
             icon={HiOutlineDesktopComputer}
             title={t('work.content.front.title')}
             sections={[
@@ -45,7 +47,7 @@ const Tasks: React.FC = () => {
               },
             ]}
           />
-          <div className="col-span-2 py-8 px-4">
+          <div className="col-span-2 py-8 px-4 border-t border-gray-200">
             <h5 className="text-blue-800 mb-4">
               {t('work.content.tools.title')}
             </h5>
@@ -57,7 +59,7 @@ const Tasks: React.FC = () => {
               ))}
             </ul>
           </div>
-          <div className="col-span-2 py-8 px-4">
+          <div className="col-span-2 py-8 px-4 border-t border-gray-200">
             <h5 className="text-blue-800 mb-6">
               {t('work.content.other.title')}
             </h5>
@@ -82,7 +84,7 @@ const Tasks: React.FC = () => {
   );
 };
 
-interface SkillProps {
+interface SkillProps extends HTMLAttributes<HTMLDivElement> {
   icon: IconType;
   title: string;
   sections: {
@@ -92,9 +94,14 @@ interface SkillProps {
   }[];
 }
 
-const Skill: React.FC<SkillProps> = ({ icon: Icon, title, sections }) => {
+const Skill: React.FC<SkillProps> = ({
+  icon: Icon,
+  title,
+  sections,
+  ...props
+}) => {
   return (
-    <div className="py-8 px-4">
+    <div {...props} className={clsx('py-8 px-4', props.className)}>
       <Icon className="w-16 h-16 text-blue-800 stroke-1 mx-auto" />
       <h5 className="text-gray-800 mb-8">{title}</h5>
       {sections.map(({ label, content, key }) => (

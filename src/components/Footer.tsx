@@ -2,8 +2,8 @@ import React from 'react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="h-16 bg-gradient-to-r from-indigo-500 to-blue-700">
-      <div className="h-full mx-auto container flex justify-between items-center">
+    <footer className="h-32 sm:h-16 bg-gradient-to-r from-indigo-500 to-blue-700">
+      <div className="h-full mx-auto container flex flex-col-reverse justify-around sm:flex-row sm:justify-between items-center">
         <p className="font-display text-xl text-white font-medium">
           © Benjamin Lepas
         </p>

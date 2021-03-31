@@ -14,11 +14,7 @@ const Nav: React.FC = () => {
       <NavItem route={'blog'} />
       <NavItem route={'contact'}>
         {({ active, route, t }) => (
-          <a
-            className={clsx(
-              'border-2 border-blue-800 rounded-full text-base text-blue-800 font-sans font-regular py-2 px-5 hover:bg-blue-500 hover:bg-opacity-70 hover:border-blue-500 hover:text-white transition duration-200',
-              active && ''
-            )}>
+          <a className={clsx('btn', active && '')}>
             {t(`header.nav.${route}`)}
           </a>
         )}
@@ -56,7 +52,7 @@ export const NavItem: React.FC<NavItemProps> = ({
       ) : (
         <a
           className={clsx(
-            'text-base text-gray-800 font-sans font-regular mr-20',
+            'text-base text-gray-800 font-sans font-regular mr-12 sm:mr-20',
             active
               ? 'border-b border-blue-800'
               : 'hover:border-b hover:border-blue-800 transition duration-200'
