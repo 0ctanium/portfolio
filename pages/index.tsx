@@ -7,9 +7,9 @@ import About from '@src/components/Home/About';
 import Tasks from '@src/components/Home/Tasks';
 import Background from '@src/components/Home/Background';
 
-// import { admin } from '@src/services/firebase/admin';
-// import { DownloadResponse } from '@google-cloud/storage';
-// import matter from 'gray-matter';
+import { admin } from '@src/services/firebase/admin';
+import { DownloadResponse } from '@google-cloud/storage';
+import matter from 'gray-matter';
 import { Timeline } from '@src/types';
 import { SSRConfig, useTranslation } from 'next-i18next';
 import Skills from '@src/components/Home/Skills';
@@ -59,52 +59,52 @@ interface HomePageProps extends SSRConfig {
   events: Timeline;
 }
 
-// async function getTimelineEventFile(key: string, locale: string) {
-//   const bucket = admin.storage().bucket();
-//
-//   let file = bucket.file(`timeline/${key}.${locale}.md`);
-//
-//   if (!(await file.exists())[0]) {
-//     file = bucket.file(`timeline/${key}.${locale}.mdx`);
-//   }
-//
-//   return file;
-// }
+async function getTimelineEventFile(key: string, locale: string) {
+  const bucket = admin.storage().bucket();
+
+  let file = bucket.file(`timeline/${key}.${locale}.md`);
+
+  if (!(await file.exists())[0]) {
+    file = bucket.file(`timeline/${key}.${locale}.mdx`);
+  }
+
+  return file;
+}
 
 export const getStaticProps: GetStaticProps<HomePageProps> = async ({
   locale,
 }) => {
-  // const firestore = admin.firestore();
-  // const snapshot = await firestore.collection('timeline').get();
+  const firestore = admin.firestore();
+  const snapshot = await firestore.collection('timeline').get();
 
   const events = [];
-  // for (const document of snapshot.docs) {
-  //   const data = document.data();
-  //
-  //   let file = await getTimelineEventFile(data.key, locale);
-  //
-  //   if (!(await file.exists())[0] && locale !== 'en') {
-  //     file = await getTimelineEventFile(data.key, 'en');
-  //   }
-  //
-  //   if ((await file.exists())[0]) {
-  //     let fileContent: DownloadResponse;
-  //     try {
-  //       fileContent = await file.download();
-  //     } catch (e) {
-  //       throw e;
-  //     }
-  //
-  //     const { data: meta, content } = matter(fileContent.toString());
-  //
-  //     events.push({
-  //       ...data,
-  //       date: (data.date.toDate() as Date).toJSON(),
-  //       content,
-  //       meta,
-  //     });
-  //   }
-  // }
+  for (const document of snapshot.docs) {
+    const data = document.data();
+
+    let file = await getTimelineEventFile(data.key, locale);
+
+    if (!(await file.exists())[0] && locale !== 'en') {
+      file = await getTimelineEventFile(data.key, 'en');
+    }
+
+    if ((await file.exists())[0]) {
+      let fileContent: DownloadResponse;
+      try {
+        fileContent = await file.download();
+      } catch (e) {
+        throw e;
+      }
+
+      const { data: meta, content } = matter(fileContent.toString());
+
+      events.push({
+        ...data,
+        date: (data.date.toDate() as Date).toJSON(),
+        content,
+        meta,
+      });
+    }
+  }
 
   return {
     props: {

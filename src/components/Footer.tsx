@@ -31,7 +31,7 @@ const Footer: React.FC = () => {
           <Social
             alt="Mail"
             src="/static/mail.svg"
-            link="mailto:san:mail@octanium.fr"
+            link="mailto:mail@octanium.fr"
           />
         </div>
       </div>
