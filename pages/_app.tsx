@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { AppProps } from 'next/app';
 
 import { DefaultSeo } from 'next-seo';
@@ -6,8 +6,22 @@ import { DefaultSeo } from 'next-seo';
 import '@src/tailwind.css';
 import { appWithTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
+
+import OverlayScrollbars from 'overlayscrollbars';
+import 'overlayscrollbars/css/OverlayScrollbars.css';
+
 function App({ Component, pageProps }: AppProps): JSX.Element {
   const { locale } = useRouter();
+
+  useEffect(() => {
+    const instance = OverlayScrollbars(document.body, {
+      nativeScrollbarsOverlaid: {
+        initialize: false,
+      },
+    });
+
+    console.log(instance);
+  }, []);
 
   return (
     <>

@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Trans, useTranslation } from 'next-i18next';
 import { HiArrowDown } from 'react-icons/hi';
 
 const Hero: React.FC = () => {
   const { t } = useTranslation('home');
+
+  const scrollDown = useCallback(() => {
+    const instance = OverlayScrollbars(document.body);
+
+    instance.scrollStop().scroll(
+      {
+        el: document.getElementById('about'),
+      },
+      500
+    );
+  }, []);
 
   return (
     <section
@@ -31,12 +42,12 @@ const Hero: React.FC = () => {
           {t('hero.desc')}
         </p>
       </div>
-      <a
-        href="#about"
+      <button
+        onClick={scrollDown}
         className="animate-bounce absolute bottom-16 left-1/2 transform -translate-x-1/2">
         <p className="sr-only">Scroller en bas</p>
         <HiArrowDown className="w-5 h-5" />
-      </a>
+      </button>
     </section>
   );
 };

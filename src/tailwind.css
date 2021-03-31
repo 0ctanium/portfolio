@@ -83,12 +83,18 @@
     stroke-width: 2;
   }
 
+  .absolute-center {
+    @apply absolute transform;
+  }
+
   .absolute-x-center {
-    @apply absolute left-1/2 transform -translate-x-1/2;
+    @apply absolute-center left-1/2;
+    --tw-translate-x: -50% !important;
   }
 
   .absolute-y-center {
-    @apply absolute top-1/2 transform -translate-y-1/2;
+    @apply absolute-center top-1/2;
+    --tw-translate-y: -50% !important;
   }
 
   .hide-scrollbar {

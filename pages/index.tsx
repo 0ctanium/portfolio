@@ -45,7 +45,7 @@ const HomePage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
         <h5 className="mb-12 font-sans text-lg font-normal">
           {t('contact.text')}
         </h5>
-        <button className="border border-blue-800 text-blue-800 px-5 py-2 rounded-full">
+        <button className="border border-blue-800 text-blue-800 px-5 py-2 rounded-full hover:bg-blue-500 hover:bg-opacity-70 hover:border-blue-500 hover:text-white transition duration-200'">
           {t('contact.cta')}
         </button>
       </section>

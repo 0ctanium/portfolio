@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react';
+import React, { HTMLAttributes, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'next-i18next';
 import { Timeline, TimelineEvent } from '@src/types';
 import { IconType } from 'react-icons';
@@ -19,8 +19,33 @@ const filterIcon = {
 };
 
 const Background: React.FC<BackgroundProps> = ({ timeline }) => {
+  const ref = useRef<HTMLDivElement>(null);
   const { t } = useTranslation('home');
+  const [scroll, setScroll] = useState<number>();
   // const [filters, setFilter] = useState<TimelineEventType[]>([]);
+
+  useEffect(() => {
+    function handleScroll() {
+      if (ref.current) {
+        setScroll(
+          ((ref.current.scrollTop + ref.current.offsetHeight) /
+            ref.current.scrollHeight) *
+            ref.current.offsetHeight
+        );
+      }
+    }
+    handleScroll();
+
+    document
+      .getElementById('timeline')
+      .addEventListener('scroll', handleScroll);
+
+    return () => {
+      document
+        .getElementById('timeline')
+        .removeEventListener('scroll', handleScroll);
+    };
+  }, [ref]);
 
   return (
     <section id="background" className="mb-24">
@@ -45,7 +70,8 @@ const Background: React.FC<BackgroundProps> = ({ timeline }) => {
         </div>
         <div
           id="timeline"
-          className="overflow-y-scroll hide-scrollbar flex flex-col py-12"
+          ref={ref}
+          className="overflow-y-scroll hide-scrollbar flex flex-col my-8 py-4"
           style={{ height: 500 }}>
           <div>
             {/* scroll top button */}
@@ -57,7 +83,9 @@ const Background: React.FC<BackgroundProps> = ({ timeline }) => {
             {/* progress */}
             <div
               className="absolute-x-center border-4 border-blue-500 rounded-full z-10 top-0"
-              style={{ height: 300 }}
+              style={{
+                height: scroll,
+              }}
             />
             <button className="absolute-x-center z-20 paper shadow-lg rounded-full bottom-0 flex items-center justify-center">
               <HiChevronDown className="w-8 h-8 text-gray-800" />
@@ -67,6 +95,18 @@ const Background: React.FC<BackgroundProps> = ({ timeline }) => {
           {timeline.map((event, i) => (
             <TimelineEventCard event={event} reverse={i % 2 === 0} key={i} />
           ))}
+          <TimelineEventCard
+            event={{
+              key: 'test',
+              date: new Date(),
+              type: 'studies',
+              meta: {
+                title: 'Lorem Ipsum',
+              },
+              content:
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            }}
+          />
         </div>
       </div>
     </section>
@@ -101,12 +141,8 @@ const TimelineEventCard: React.FC<TimelineEventCardProps> = ({
           {date.toLocaleString(locale, { month: 'long', year: 'numeric' })}
         </span>
         <div className="paper rounded-md p-4">
-          <div
-            className={clsx(
-              'flex items-center text-blue-800 mb-4',
-              reverse && 'flex-row-reverse'
-            )}>
-            <h6 className="flex-grow text font-semibold text-lg order-1">
+          <div className="flex flex-row items-center text-blue-800 mb-4">
+            <h6 className="flex-grow text font-semibold text-lg">
               {meta?.title}
             </h6>
             {Icon && <Icon className="w-6 h-6" />}

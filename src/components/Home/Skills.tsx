@@ -13,8 +13,10 @@ const Skills: React.FC = () => {
       <h2 className="text-gray-800 mb-16 text-center">{t('skills.title')}</h2>
       <div className="grid grid-cols-2 gap-10">
         <div>
-          <HiOutlineDesktopComputer className="w-16 h-16 text-blue-800 stroke-1 mx-auto" />
-          <h5 className="text-gray-800 mb-8">{t('skills.front')}</h5>
+          <div className="flex flex-row justify-center items-center mb-8">
+            <HiOutlineDesktopComputer className="w-8 h-8 text-blue-800 stroke-1 mr-3" />
+            <h5 className="text-gray-800">{t('skills.front')}</h5>
+          </div>
 
           <SkillBar
             url="/static/js.svg"
@@ -75,8 +77,10 @@ const Skills: React.FC = () => {
         </div>
 
         <div>
-          <HiOutlineCode className="w-16 h-16 text-blue-800 stroke-1 mx-auto" />
-          <h5 className="text-gray-800 mb-8">{t('skills.back')}</h5>
+          <div className="flex flex-row justify-center items-center mb-8">
+            <HiOutlineCode className="w-8 h-8 text-blue-800 stroke-1 mr-3" />
+            <h5 className="text-gray-800">{t('skills.back')}</h5>
+          </div>
 
           <SkillBar
             url="/static/graphql.svg"

@@ -2,7 +2,7 @@ const defaultConfig = require('tailwindcss/defaultTheme');
 
 module.exports = {
   purge: ['./pages/**/*.tsx', './src/components/**/*.tsx'],
-  darkMode: 'media', // or 'media' or 'class'
+  darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
       fontFamily: {
@@ -20,6 +20,8 @@ module.exports = {
   variants: {
     extend: {
       margin: ['last'],
+      borderWidth: ['hover'],
+      borderColor: ['hover'],
     },
   },
   plugins: [],

@@ -11,5 +11,4 @@ module.exports = {
     ];
   },
   i18n,
-  target: 'serverless',
 };
