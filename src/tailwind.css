@@ -4,6 +4,7 @@
 
 @layer base {
   html {
+    @apply text-gray-800;
     scroll-behavior: smooth;
   }
 
@@ -20,11 +21,52 @@
   }
 
   h5 {
-    @apply text-lg font-body font-bold;
+    @apply text-lg font-sans font-bold;
   }
 
   p {
-    @apply text-base font-normal font-body;
+    @apply text-base font-normal font-sans;
+  }
+}
+
+@layer components {
+  .paper {
+    @apply bg-gray-50 shadow-md border border-gray-100;
+  }
+
+  .progress-wrapper {
+    @apply w-full h-full absolute z-50;
+  }
+
+  .progress-wrapper .circle {
+    @apply w-full h-full border-6 rounded-full absolute transform;
+    border-color: currentColor;
+  }
+
+  .progress-wrapper .progress-left {
+    @apply w-full h-full absolute inset-0;
+    clip: rect(0px, 2rem, 4rem, 0px);
+  }
+
+  .progress-wrapper .progress-left .circle {
+    clip: rect(0px, 4rem, 4rem, 2rem);
+  }
+
+  .progress-wrapper .progress-right {
+    @apply w-full h-full absolute inset-0;
+    clip: rect(0px, 4rem, 4rem, 2rem);
+  }
+
+  .progress-wrapper .progress-right .circle {
+    clip: rect(0px, 2rem, 4rem, 0px);
+  }
+
+  .quote::before {
+    content:  '"';
+  }
+
+  .quote::after {
+    content:  '"';
   }
 }
 
@@ -36,5 +78,32 @@
 
   .stroke-1 path {
     stroke-width: 1;
+  }
+  .stroke-2 path {
+    stroke-width: 2;
+  }
+
+  .absolute-x-center {
+    @apply absolute left-1/2 transform -translate-x-1/2;
+  }
+
+  .absolute-y-center {
+    @apply absolute top-1/2 transform -translate-y-1/2;
+  }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .-scale-x-100 {
+    --tw-scale-x: -1;
+  }
+
+  .-scale-y-100 {
+    --tw-scale-y: -1;
   }
 }

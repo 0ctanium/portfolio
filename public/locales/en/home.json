@@ -58,5 +58,38 @@
         }
       }
     }
+  },
+  "background": {
+    "title": "My background",
+    "filters": {
+      "studies": "Studies",
+      "pro": "Professional",
+      "events": "Events"
+    }
+  },
+  "skills": {
+    "title": "My skills",
+    "front": "Front-end",
+    "back": "Back-end",
+    "other": "Other",
+    "soft": {
+      "title": "Soft Skills",
+      "skills": {
+        "patient": "Patient",
+        "invested": "Invested",
+        "curious": "Curious"
+      }
+    }
+  },
+  "works": {
+    "title": "My works"
+  },
+  "testimonials": {
+    "title": "Testimonials"
+  },
+  "contact": {
+    "title": "Interested in my profile?",
+    "text": "Do you want to start a project together?",
+    "cta": "Contact me"
   }
 }

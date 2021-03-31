@@ -1,32 +1,39 @@
 import React from 'react';
 import { useTranslation } from 'next-i18next';
-import { HiOutlineCode, HiOutlineDesktopComputer } from 'react-icons/hi';
+import Image from 'next/image';
 
-const Work: React.FC = () => {
+const Works: React.FC = () => {
   const { t } = useTranslation('home');
 
   return (
-    <section id="work">
-      <div className="shadow bg-white border border-gray-200 max-w-xl w-full mx-auto rounded overflow-hidden">
-        <h3 className="py-4 border-b border-gray-200 text-gray-800 text-center">
-          {t('work.title')}
-        </h3>
-        <div className="grid grid-cols-2">
-          <div>
-            <HiOutlineDesktopComputer className="w-16 h-16 text-blue-800 stroke-1" />
-            <h5 className="text-gray-800">{t('work.content.front.title')}</h5>
-          </div>
-          <div>
-            <HiOutlineCode className="w-16 h-16 text-blue-800 stroke-1" />
-            <h5 className="text-gray-800">{t('work.content.back.title')}</h5>
-          </div>
-          <div className="col-span-2">
-            <h5 className="text-blue-800">{t('work.content.tools.title')}</h5>
-          </div>
-        </div>
+    <section id="work" className="mb-24 text-center">
+      <h2 className="text-gray-800 mb-16">{t('works.title')}</h2>
+      <div className="mx-auto inline-grid grid-cols-2 gap-6">
+        <Work label="Isimmo" url="/static/work/isimmo.jpg" />
+        <Work label="Isimmo" url="/static/work/isimmo.jpg" />
+        <Work label="Isimmo" url="/static/work/isimmo.jpg" />
+        <Work label="Isimmo" url="/static/work/isimmo.jpg" />
       </div>
     </section>
   );
 };
 
-export default Work;
+interface WorkProps {
+  label: string;
+  link?: string;
+  url: string;
+}
+
+const Work: React.FC<WorkProps> = ({ url, label }) => {
+  return (
+    <div
+      className="rounded-md border border-gray-200 overflow-hidden"
+      style={{ width: 300, height: 185 }}>
+      <picture>
+        <Image src={url} alt={label} width={300} height={185} />
+      </picture>
+    </div>
+  );
+};
+
+export default Works;

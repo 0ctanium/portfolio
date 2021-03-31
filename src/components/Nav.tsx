@@ -16,7 +16,7 @@ const Nav: React.FC = () => {
         {({ active, route, t }) => (
           <a
             className={clsx(
-              'border-2 border-blue-800 rounded-full text-base text-blue-800 font-body font-regular py-2 px-10',
+              'border-2 border-blue-800 rounded-full text-base text-blue-800 font-sans font-regular py-2 px-10',
               active && ''
             )}>
             {t(`header.nav.${route}`)}
@@ -56,7 +56,7 @@ export const NavItem: React.FC<NavItemProps> = ({
       ) : (
         <a
           className={clsx(
-            'text-base text-gray-800 font-body font-regular mr-20',
+            'text-base text-gray-800 font-sans font-regular mr-20',
             active && 'border-b border-blue-800'
           )}>
           {t(`header.nav.${route}`)}

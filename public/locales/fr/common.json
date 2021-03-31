@@ -5,9 +5,5 @@
       "blog": "Blog",
       "contact": "Contactez-moi"
     }
-  },
-  "hero": {
-    "hi": "Salut,\nJe suis {{name}},\nun développeur web",
-    "desc": "Développeur Full Stack / Expert React"
   }
 }

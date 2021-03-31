@@ -1,4 +1,4 @@
-import { RoutesByUrl, RouteUrl } from '@src/types';
+import { RoutesByUrl } from '@src/types';
 
 const routes = {
   home: '/',

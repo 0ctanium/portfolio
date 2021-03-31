@@ -8,7 +8,7 @@ const Hero: React.FC = () => {
   return (
     <section
       id="hero"
-      className="relative w-screen min-h-screen py-32 bg-gray-300">
+      className="relative max-w-screen min-h-screen py-32 bg-gray-300">
       <div className="container mx-auto">
         <h1 className="text-gray-800 mb-4">
           <Trans
@@ -27,13 +27,14 @@ const Hero: React.FC = () => {
             , a web developer
           </Trans>
         </h1>
-        <h5 className="text-xl font-light font-body text-gray-500">
+        <p className="text-xl font-light font-sans text-gray-500">
           {t('hero.desc')}
-        </h5>
+        </p>
       </div>
       <a
         href="#about"
         className="animate-bounce absolute bottom-16 left-1/2 transform -translate-x-1/2">
+        <p className="sr-only">Scroller en bas</p>
         <HiArrowDown className="w-5 h-5" />
       </a>
     </section>

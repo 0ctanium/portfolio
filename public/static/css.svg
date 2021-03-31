@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="22.685" height="32.019" viewBox="0 0 22.685 32.019">
+  <g id="icon" transform="translate(-618.677 -1546.01)">
+    <g id="layer1" transform="translate(425.044 1269.648)">
+      <g id="g3013" transform="translate(193.633 276.362)">
+        <path id="polygon2989" d="M97.317,100.62l-2.067,23.151-9.29,2.575L76.7,123.775,74.633,100.62Z" transform="translate(-74.633 -94.327)" fill="#264de4"/>
+        <path id="polygon2991" d="M263.506,150.678l1.766-19.784H256v21.865Z" transform="translate(-244.658 -122.708)" fill="#2965f1"/>
+        <path id="polygon2993" d="M150.31,268.217l.255,2.84h6.355v-2.84Z" transform="translate(-145.577 -251.443)" fill="#ebebeb"/>
+        <path id="polygon2995" d="M149.253,176.305h-7.121l.258,2.84h6.863Z" transform="translate(-137.911 -165.279)" fill="#ebebeb"/>
+        <path id="polygon2997" d="M162.637,342.4v-2.955l-.012,0-3.163-.854-.2-2.265h-2.851l.4,4.459,5.817,1.615Z" transform="translate(-151.295 -315.3)" fill="#ebebeb"/>
+        <path id="path2999" d="M160,0h3.44V1.438h-2V2.877h2V4.315H160Z" transform="translate(-154.661)"/>
+        <path id="path3001" d="M226,0h3.44V1.251h-2V1.5h2V4.378H226V3.064h2v-.25h-2Z" transform="translate(-216.534)"/>
+        <path id="path3003" d="M292,0h3.44V1.251h-2V1.5h2V4.378H292V3.064h2v-.25h-2Z" transform="translate(-278.406)"/>
+        <path id="polygon3005" d="M259.34,184.893l-.33,3.683-3.167.855v2.955l5.822-1.614.043-.48.667-7.476.069-.763.513-5.748h-7.114v2.84h4l-.258,2.908h-3.743v2.84Z" transform="translate(-244.511 -165.279)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

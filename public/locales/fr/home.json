@@ -10,5 +10,86 @@
   "about": {
     "title": "À props de moi",
     "text": "Passionné par le développement web depuis mon plus jeune âge. Je maîtrise diverses technologies qui me permettent de concevoir et développer un site web dans sa totalité. Je travaille et apprend constamment pour améliorer mes compétences et satisfaire ma soif de connaissances."
+  },
+  "work": {
+    "title": "Qu'est-ce que je peux faire ?",
+    "content": {
+      "front": {
+        "title": "Développement Front-end",
+        "tasks": {
+          "label": "Quelles taches pouvez-vous me donner",
+          "text": [
+            "Web application developement",
+            "Design a web app",
+            "Make an application responsive",
+            "Port web application on mobile",
+            "Port web application on desktop"
+          ]
+        }
+      },
+      "back": {
+        "title": "Développement Back-end",
+        "tasks": {
+          "label": "Les choses que je peux faire",
+          "text": [
+            "Back-end structure design",
+            "Database structure design",
+            "Develop an API"
+          ]
+        }
+      },
+      "tools": {
+        "title": "Tools I use",
+        "text": [
+          ["Git"],
+          ["Webstorm", "VS Code"],
+          ["React", "Next.Js"],
+          ["Material-UI", "Tailwind"],
+          ["GraphQL", "REST", "Serverless"],
+          ["MongoDB", "PostgreSQL", "Firebase"]
+        ]
+      },
+      "other": {
+        "title": "Other works",
+        "tasks": {
+          "design": "Web designer",
+          "sysadmin": "System administrator",
+          "teach": "Teacher / Conferrer"
+        }
+      }
+    }
+  },
+  "background": {
+    "title": "My background",
+    "filters": {
+      "studies": "Studies",
+      "pro": "Professional",
+      "events": "Events"
+    }
+  },
+  "skills": {
+    "title": "My skills",
+    "front": "Front-end",
+    "back": "Back-end",
+    "other": "Other",
+    "soft": {
+      "title": "Soft Skills",
+      "skills": {
+        "patient": "Patient",
+        "invested": "Invested",
+        "curious": "Curious"
+      }
+    }
+  },
+  "works": {
+    "title": "My works"
+  },
+  "testimonials": {
+    "title": "Testimonials"
+  },
+  "contact": {
+    "title": "Interested in my profile?",
+    "text": "Do you want to start a project together?",
+    "cta": "Contact me"
   }
 }
