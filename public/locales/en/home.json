@@ -1,4 +1,8 @@
 {
+  "page": {
+    "title": "Benjamin Lepas - Web Developer",
+    "desc": "Hey ! I'm Benjamin, a full stack web developper. You can visit my portfolio to know more about me."
+  },
   "hero": {
     "hi": [
       "Hi,",

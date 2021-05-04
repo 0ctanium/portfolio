@@ -1,5 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import React from 'react';
+import clsx from 'clsx';
 
 class MyDocument extends Document {
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
@@ -21,9 +22,10 @@ class MyDocument extends Document {
           <link rel="stylesheet" href="https://use.typekit.net/cri2dli.css" />
         </Head>
         <body
-          className={
-            process.env.NODE_ENV === 'development' ? 'debug-screens' : ''
-          }>
+          className={clsx(
+            'bg-gray-50 dark:bg-gray-900',
+            process.env.NODE_ENV === 'development' && 'debug-screens'
+          )}>
           <Main />
           <NextScript />
         </body>

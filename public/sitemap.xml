@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+  xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"
+>
+  <url
+    ><loc>https://benjaminlepas.fr</loc><changefreq>daily</changefreq
+    ><lastmod>2021-05-04T22:24:08.766Z</lastmod
+    ><xhtml:link /><xhtml:link /></url
+  ><url
+    ><loc>https://benjaminlepas.fr/blog</loc><changefreq>daily</changefreq
+    ><lastmod>2021-05-04T22:24:08.767Z</lastmod
+    ><xhtml:link /><xhtml:link /></url
+  ><url
+    ><loc>https://benjaminlepas.fr/contact</loc><changefreq>daily</changefreq
+    ><lastmod>2021-05-04T22:24:08.767Z</lastmod
+    ><xhtml:link /><xhtml:link /></url
+  ><url
+    ><loc>https://benjaminlepas.fr/en</loc><changefreq>daily</changefreq
+    ><lastmod>2021-05-04T22:24:08.767Z</lastmod
+    ><xhtml:link rel="alternate" hreflang="fr" href="/fr/" /></url
+  ><url
+    ><loc>https://benjaminlepas.fr/en/blog</loc><changefreq>daily</changefreq
+    ><lastmod>2021-05-04T22:24:08.767Z</lastmod
+    ><xhtml:link rel="alternate" hreflang="fr" href="/fr/blog" /></url
+  ><url
+    ><loc>https://benjaminlepas.fr/en/contact</loc><changefreq>daily</changefreq
+    ><lastmod>2021-05-04T22:24:08.767Z</lastmod
+    ><xhtml:link rel="alternate" hreflang="fr" href="/fr/contact" /></url
+  ><url
+    ><loc>https://benjaminlepas.fr/fr</loc><changefreq>daily</changefreq
+    ><lastmod>2021-05-04T22:24:08.767Z</lastmod
+    ><xhtml:link rel="alternate" hreflang="en" href="/en/" /></url
+  ><url
+    ><loc>https://benjaminlepas.fr/fr/blog</loc><changefreq>daily</changefreq
+    ><lastmod>2021-05-04T22:24:08.767Z</lastmod
+    ><xhtml:link rel="alternate" hreflang="en" href="/en/blog" /></url
+  ><url
+    ><loc>https://benjaminlepas.fr/fr/contact</loc><changefreq>daily</changefreq
+    ><lastmod>2021-05-04T22:24:08.767Z</lastmod
+    ><xhtml:link rel="alternate" hreflang="en" href="/en/contact" /></url
+></urlset>

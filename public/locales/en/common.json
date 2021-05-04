@@ -5,5 +5,15 @@
       "blog": "Blog",
       "contact": "Contact me"
     }
+  },
+  "footer": {
+    "theme": {
+      "light": "Toggle light mode",
+      "dark": "Toggle dark mode"
+    },
+    "lang": {
+      "fr": "Set lang to French",
+      "en": "Set lang to English"
+    }
   }
 }

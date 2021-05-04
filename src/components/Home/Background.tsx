@@ -13,6 +13,7 @@ import { MdSchool } from 'react-icons/md';
 import { HiChevronDown, HiChevronUp } from 'react-icons/hi';
 import clsx from 'clsx';
 import { useRouter } from 'next/router';
+import useIsomorphicLayoutEffect from '@src/hooks/useIsoMorphicLayoutEffect';
 
 interface BackgroundProps {
   timeline: Timeline;
@@ -30,6 +31,16 @@ const Background: React.FC<BackgroundProps> = ({ timeline }) => {
   const [scroll, setScroll] = useState<number>();
   const [filters, setFilter] = useState<TimelineEventType[]>([]);
 
+  const handleScroll = useCallback(() => {
+    if (ref.current) {
+      setScroll(
+        ((ref.current.scrollTop + ref.current.offsetHeight) /
+          ref.current.scrollHeight) *
+          ref.current.offsetHeight
+      );
+    }
+  }, [ref]);
+
   const onFilter = useCallback(
     (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
       const tag = event.currentTarget.getAttribute(
@@ -44,36 +55,27 @@ const Background: React.FC<BackgroundProps> = ({ timeline }) => {
       }
 
       setFilter([...new Set(newFilters)]);
+
+      handleScroll();
     },
-    [filters]
+    [filters, handleScroll]
   );
 
-  useEffect(() => {
-    function handleScroll() {
-      if (ref.current) {
-        setScroll(
-          ((ref.current.scrollTop + ref.current.offsetHeight) /
-            ref.current.scrollHeight) *
-            ref.current.offsetHeight
-        );
-      }
-    }
-    handleScroll();
+  useIsomorphicLayoutEffect(handleScroll, [handleScroll, filters]);
 
-    document
-      .getElementById('timeline')
-      ?.addEventListener('scroll', handleScroll);
+  useEffect(() => {
+    const timeline = ref.current;
+
+    timeline?.addEventListener('scroll', handleScroll);
 
     return () => {
-      document
-        .getElementById('timeline')
-        ?.removeEventListener('scroll', handleScroll);
+      timeline?.removeEventListener('scroll', handleScroll);
     };
-  }, [ref]);
+  }, [handleScroll, ref]);
 
   return (
     <section id="background" className="mb-24">
-      <h2 className="text-gray-800 mb-16 text-center">
+      <h2 className="text-gray-800 dark:text-gray-200 mb-16 text-center">
         {t('background.title')}
       </h2>
       <div className="container px-4 mx-auto">
@@ -109,7 +111,7 @@ const Background: React.FC<BackgroundProps> = ({ timeline }) => {
             style={{ height: 500 }}>
             <div className="absolute left-6 inset-y-0 lg:left-1/2 lg:-translate-y-1/2 h-full flex justify-center z-10">
               {/* scroll top button */}
-              <button className="absolute z-20 paper paper-btn rounded-full top-0 flex items-center justify-center text-gray-800 hover:text-blue-800">
+              <button className="absolute z-20 paper-btn rounded-full top-0 flex items-center justify-center text-gray-800 dark:text-gray-200 hover:text-blue-800 dark:hover:text-blue-500">
                 <span className="sr-only">Scroller en haut de la timeline</span>
                 <HiChevronUp className="w-8 h-8" />
               </button>
@@ -122,7 +124,7 @@ const Background: React.FC<BackgroundProps> = ({ timeline }) => {
                   height: scroll,
                 }}
               />
-              <button className="absolute z-20 paper paper-btn rounded-full bottom-0 flex items-center justify-center text-gray-800 hover:text-blue-800">
+              <button className="absolute z-20 paper paper-btn rounded-full bottom-0 flex items-center justify-center text-gray-800 dark:text-gray-200 hover:text-blue-800 dark:hover:text-blue-500">
                 <span className="sr-only">Scroller en bas de la timeline</span>
                 <HiChevronDown className="w-8 h-8" />
               </button>
@@ -150,11 +152,7 @@ const Background: React.FC<BackgroundProps> = ({ timeline }) => {
                   !filters || filters.length === 0 || filters.includes(e.type)
               )
               .map((event, i) => (
-                <TimelineEventCard
-                  event={event}
-                  reverse={i % 2 === 0}
-                  key={i}
-                />
+                <TimelineEventCard event={event} key={i} />
               ))}
           </div>
         </div>
@@ -165,12 +163,10 @@ const Background: React.FC<BackgroundProps> = ({ timeline }) => {
 
 interface TimelineEventCardProps {
   event: TimelineEvent;
-  reverse?: boolean | number;
 }
 
 const TimelineEventCard: React.FC<TimelineEventCardProps> = ({
   event: { content, date, type, meta },
-  reverse,
 }) => {
   const { locale } = useRouter();
   const Icon = filterIcon[type];
@@ -179,25 +175,24 @@ const TimelineEventCard: React.FC<TimelineEventCardProps> = ({
   return (
     <div
       className={clsx(
-        'mb-8 flex justify-between items-center text-left relative',
-        reverse && 'lg:flex-row-reverse'
+        'mb-8 flex justify-between items-center text-left relative even:flex-row-reverse'
       )}>
       <div className="hidden lg:block order-1 w-5/12" />
 
       <div className="absolute -left-13 lg:relative lg:left-0 lg:transform-none z-0 flex items-center order-1 bg-gray-600 shadow-xl w-6 h-6 rounded-full" />
 
-      <div className="order-1 w-full lg:w-5/12">
-        <span className="capitalize">
+      <div className="order-1 w-full lg:w-5/12 text-gray-400 dark:text-gray-500">
+        <p className="capitalize ml-1 mb-2">
           {date.toLocaleString(locale, { month: 'long', year: 'numeric' })}
-        </span>
+        </p>
         <div className="paper rounded-md p-4">
-          <div className="flex flex-row items-center text-blue-800 mb-4">
+          <div className="flex flex-row items-center text-blue-800 dark:text-blue-500 mb-4">
             <h6 className="flex-grow text font-semibold text-lg">
               {meta?.title}
             </h6>
             {Icon && <Icon className="w-6 h-6" />}
           </div>
-          <p>{content}</p>
+          <p className="text-gray-800 dark:text-gray-200">{content}</p>
         </div>
       </div>
     </div>
@@ -220,7 +215,9 @@ const FilterChip: React.FC<FilterChipProps> = ({
     <button
       className={clsx(
         'paper paper-btn rounded-full mr-4 last:mr-0 flex items-center font-semibold text-base px-4 py-1 mb-4',
-        active ? 'text-blue-800' : 'text-gray-800'
+        active
+          ? 'text-blue-800 dark:text-blue-500'
+          : 'text-gray-800 dark:text-gray-200'
       )}
       {...props}>
       {label} <Icon className="ml-4 h-5 w-5" />

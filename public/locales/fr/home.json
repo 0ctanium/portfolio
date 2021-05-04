@@ -1,4 +1,8 @@
 {
+  "page": {
+    "title": "Benjamin Lepas - Développeur Web",
+    "desc": "Salut ! Je suis Benjamin, un développeur web full-stack. Vous pouvez vous rendrez sur mon portfolio afin d'en savoir plus sur moi."
+  },
   "hero": {
     "hi": [
       "Salut,",
@@ -19,11 +23,11 @@
         "tasks": {
           "label": "Quelles taches pouvez-vous me donner",
           "text": [
-            "Web application developement",
-            "Design a web app",
-            "Make an application responsive",
-            "Port web application on mobile",
-            "Port web application on desktop"
+            "Développement d'une application web",
+            "Design d'une application web",
+            "Rendre une application web responsive",
+            "Faire un portage mobile d'une application web",
+            "Faure un portage sur bureau d'une application web"
           ]
         }
       },
@@ -32,14 +36,14 @@
         "tasks": {
           "label": "Les choses que je peux faire",
           "text": [
-            "Back-end structure design",
-            "Database structure design",
-            "Develop an API"
+            "Mise en place d'une structure back-end",
+            "Mise en place d'une structure de base de données",
+            "Création d'une API"
           ]
         }
       },
       "tools": {
-        "title": "Tools I use",
+        "title": "Les outils que j'utilise",
         "text": [
           ["Git"],
           ["Webstorm", "VS Code"],
@@ -50,46 +54,46 @@
         ]
       },
       "other": {
-        "title": "Other works",
+        "title": "Autres capacités",
         "tasks": {
-          "design": "Web designer",
-          "sysadmin": "System administrator",
-          "teach": "Teacher / Conferrer"
+          "design": "Designeur web",
+          "sysadmin": "Administrateur systeme ",
+          "teach": "Moniteur / Conférencier"
         }
       }
     }
   },
   "background": {
-    "title": "My background",
+    "title": "Mon histoire",
     "filters": {
-      "studies": "Studies",
-      "pro": "Professional",
-      "events": "Events"
+      "studies": "Études",
+      "pro": "Professionel",
+      "events": "Évenement"
     }
   },
   "skills": {
-    "title": "My skills",
+    "title": "Mes compétences",
     "front": "Front-end",
     "back": "Back-end",
-    "other": "Other",
+    "other": "Autre",
     "soft": {
       "title": "Soft Skills",
       "skills": {
         "patient": "Patient",
-        "invested": "Invested",
-        "curious": "Curious"
+        "invested": "Investis",
+        "curious": "Curieux"
       }
     }
   },
   "works": {
-    "title": "My works"
+    "title": "Mes travaux"
   },
   "testimonials": {
-    "title": "Testimonials"
+    "title": "Témoignages"
   },
   "contact": {
-    "title": "Interested in my profile?",
-    "text": "Do you want to start a project together?",
-    "cta": "Contact me"
+    "title": "Intéressé par mon profil ?",
+    "text": "Lançons un projet ensemble ?",
+    "cta": "Contactez-moi"
   }
 }

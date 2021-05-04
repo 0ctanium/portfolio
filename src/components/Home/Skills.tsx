@@ -12,12 +12,16 @@ const Skills: React.FC = () => {
     <section
       id="skills"
       className="px-10 lg:px-0 mx-auto lg:max-w-screen-md mb-24">
-      <h2 className="text-gray-800 mb-16 text-center">{t('skills.title')}</h2>
-      <div className="lg:grid lg:grid-cols-2 lg:gap-10">
+      <h2 className="text-gray-800 dark:text-gray-200 mb-16 text-center">
+        {t('skills.title')}
+      </h2>
+      <div className="lg:grid lg:grid-cols-2 lg:gap-x-12 gap-x-9">
         <div className="mb-6 lg:mb-0">
           <div className="flex flex-row justify-center items-center mb-8">
-            <HiOutlineDesktopComputer className="w-8 h-8 text-blue-800 stroke-1 mr-3" />
-            <h5 className="text-gray-800">{t('skills.front')}</h5>
+            <HiOutlineDesktopComputer className="w-8 h-8 text-blue-800 dark:text-blue-500 stroke-1 mr-3" />
+            <h5 className="text-gray-800 dark:text-gray-200">
+              {t('skills.front')}
+            </h5>
           </div>
 
           <SkillBar
@@ -38,7 +42,7 @@ const Skills: React.FC = () => {
             color="#000000"
             percent={65}
           />
-          <div className="grid grid-cols-2">
+          <div className="grid grid-cols-2 mb-2">
             <SkillBar
               url="/static/html.svg"
               label="HTML"
@@ -80,8 +84,10 @@ const Skills: React.FC = () => {
 
         <div className="mb-6 lg:mb-0">
           <div className="flex flex-row justify-center items-center mb-8">
-            <HiOutlineCode className="w-8 h-8 text-blue-800 stroke-1 mr-3" />
-            <h5 className="text-gray-800">{t('skills.back')}</h5>
+            <HiOutlineCode className="w-8 h-8 text-blue-800 dark:text-blue-500 stroke-1 mr-3" />
+            <h5 className="text-gray-800 dark:text-gray-200">
+              {t('skills.back')}
+            </h5>
           </div>
 
           <SkillBar
@@ -106,7 +112,7 @@ const Skills: React.FC = () => {
             reverse
           />
 
-          <div className="grid grid-cols-2">
+          <div className="grid grid-cols-2 mb-2">
             <SkillBar
               url="/static/node.svg"
               label="Node.js"
@@ -147,7 +153,9 @@ const Skills: React.FC = () => {
         </div>
 
         <div className="col-span-2 mb-6 lg:mb-0">
-          <h5 className="text-gray-800 mb-8">{t('skills.other')}</h5>
+          <h5 className="text-gray-800 dark:text-gray-200 mb-8">
+            {t('skills.other')}
+          </h5>
           <div className="flex justify-between items-center flex-wrap">
             <CircleSkill
               url="/static/linux.svg"
@@ -194,20 +202,20 @@ const Skills: React.FC = () => {
           </div>
         </div>
         <div className="mx-auto col-span-2 mb-12 lg:mb-0 text-center">
-          <h5 className="text-lg text-gray-800 mb-6">
+          <h5 className="text-lg text-gray-800 dark:text-gray-200 mb-6">
             {t('skills.soft.title')}
           </h5>
-          <ul className="font-semibold text-base text-gray-800 inline-block">
+          <ul className="font-semibold text-lg text-gray-800 dark:text-gray-200 inline-block">
             <li className="flex items-center mb-3 last:mb-0">
-              <AiOutlineHourglass className="w-6 h-6 text-blue-800 stroke-2 mr-3" />{' '}
+              <AiOutlineHourglass className="w-6 h-6 text-blue-800 dark:text-blue-500 stroke-2 mr-3" />{' '}
               {t('skills.soft.skills.patient')}
             </li>
             <li className="flex items-center mb-3 last:mb-0">
-              <FaHandRock className="w-6 h-6 text-blue-800 mr-3" />{' '}
+              <FaHandRock className="w-6 h-6 text-blue-800 dark:text-blue-500 mr-3" />{' '}
               {t('skills.soft.skills.invested')}
             </li>
             <li className="flex items-center mb-3 last:mb-0">
-              <FaRegLightbulb className="w-6 h-6 text-blue-800 mr-3" />{' '}
+              <FaRegLightbulb className="w-6 h-6 text-blue-800 dark:text-blue-500 mr-3" />{' '}
               {t('skills.soft.skills.curious')}
             </li>
           </ul>
@@ -249,7 +257,7 @@ const CircleSkill: React.FC<Skill> = ({ url, label, color, percent }) => {
             />
           </div>
         </div>
-        <div className="w-full h-full flex items-center justify-center border-6 border-gray-800 rounded-full relative mb-2">
+        <div className="w-full h-full flex items-center justify-center border-6 border-gray-800 dark:border-gray-600 rounded-full relative mb-2">
           <picture>
             <img
               src={url}
@@ -261,7 +269,9 @@ const CircleSkill: React.FC<Skill> = ({ url, label, color, percent }) => {
           </picture>
         </div>
       </div>
-      <span className="mx-3 font-medium text-lg font-display">{label}</span>
+      <span className="mx-3 mt-1 font-medium text-lg font-display text-gray-800 dark:text-gray-200">
+        {label}
+      </span>
     </div>
   );
 };
@@ -286,7 +296,7 @@ const SkillBar: React.FC<SkillBarProps> = ({
       {/* circle */}
       <div
         className={clsx(
-          'rounded-full flex items-center justify-center bg-white z-10',
+          'rounded-full flex items-center justify-center bg-transparent z-10',
           small ? 'w-16 h-16 border-6' : 'w-20 h-20 border-8'
         )}
         style={{ borderColor: color }}>
@@ -303,7 +313,7 @@ const SkillBar: React.FC<SkillBarProps> = ({
       <div className={clsx('flex-grow relative')}>
         <span
           className={clsx(
-            'mx-3 font-bold text-xl font-display absolute top-1/2 transform',
+            'mx-3 font-bold text-xl font-display absolute top-1/2 transform text-gray-800 dark:text-gray-200',
             reverse && 'right-0'
           )}
           style={{
@@ -315,7 +325,7 @@ const SkillBar: React.FC<SkillBarProps> = ({
         {/* bar */}
         <div
           className={clsx(
-            'bg-gray-800 absolute-y-center',
+            'bg-gray-800 dark:bg-gray-600 absolute-y-center',
             reverse ? '-right-1 ' : '-left-1',
             small ? 'h-1.5 rounded-none' : 'h-2 rounded-full'
           )}
@@ -329,18 +339,18 @@ const SkillBar: React.FC<SkillBarProps> = ({
           />
         </div>
         <div
-          className="absolute transform bg-gray-800 rounded text-white text-sm py-px px-1.5"
+          className="absolute transform bg-gray-800 dark:bg-gray-600 rounded py-px px-1.5"
           style={{
             left: !reverse && percent + '%',
             right: reverse && percent + '%',
-            top: !revertTooltip && 'calc(50% + 0.75rem)',
-            bottom: revertTooltip && 'calc(50% + 0.75rem)',
+            top: !revertTooltip && 'calc(50% + 1rem)',
+            bottom: revertTooltip && 'calc(50% + 1rem)',
             // @ts-ignore
             '--tw-translate-x': reverse ? '50%' : '-50%',
           }}>
           <svg
             className={clsx(
-              'absolute z-0 w-6 h-6 text-gray-800 transform  fill-current stroke-current',
+              'absolute z-0 w-6 h-6 transform text-gray-800 dark:text-gray-600 fill-current stroke-current',
               revertTooltip
                 ? 'bottom-0 translate-y-1/2 -scale-y-100'
                 : 'top-0 -translate-y-1/2'
@@ -349,7 +359,9 @@ const SkillBar: React.FC<SkillBarProps> = ({
             viewBox="0 0 32 16">
             <path d="M16 0l16 16H0z" />
           </svg>
-          <span className="z-10">{percent}%</span>
+          <span className="font-medium z-10 text-gray-200 dark:text-gray-300 text-sm">
+            {percent}%
+          </span>
         </div>
       </div>
     </div>

@@ -9,11 +9,22 @@ import { useRouter } from 'next/router';
 
 import OverlayScrollbarsModule from 'overlayscrollbars';
 import 'overlayscrollbars/css/OverlayScrollbars.css';
+import useTheme from '@src/hooks/useTheme';
 
 function App({ Component, pageProps }: AppProps): JSX.Element {
   const { locale } = useRouter();
+  const theme = useTheme();
 
   useEffect(() => {
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [theme]);
+
+  useEffect(() => {
+    // Scrollbar
     OverlayScrollbarsModule(document.body, {
       nativeScrollbarsOverlaid: {
         initialize: false,

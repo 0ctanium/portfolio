@@ -26,8 +26,8 @@ const HomePage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   return (
     <>
       <NextSeo
-        title="Benjamin Lepas"
-        description="Hey ! I'm Benjamin, a full stack web developper. You can visit my portfolio to know more about me"
+        title={t('page.title')}
+        description={t('page.desc')}
         canonical="https://benjaminlepas.fr/"
       />
 
@@ -42,12 +42,14 @@ const HomePage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
       <Testimonials />
       <section
         id="contact"
-        className="text-center mb-24 mx-auto container px-10">
-        <h2 className="text-gray-800 mb-3">{t('contact.title')}</h2>
+        className="text-center mb-24 mx-auto container px-10 text-gray-800 dark:text-gray-200">
+        <h2 className="mb-3">{t('contact.title')}</h2>
         <h5 className="mb-12 font-sans text-lg font-normal">
           {t('contact.text')}
         </h5>
-        <button className="btn">{t('contact.cta')}</button>
+        <button className="btn-blue-700 dark:btn-blue-500">
+          {t('contact.cta')}
+        </button>
       </section>
 
       <Footer />

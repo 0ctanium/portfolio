@@ -5,10 +5,10 @@ const Testimonials: React.FC = () => {
   const { t } = useTranslation('home');
 
   return (
-    <section id="work" className="mb-24 mx-auto container px-10">
-      <h2 className="text-gray-800 mb-16 text-center">
-        {t('testimonials.title')}
-      </h2>
+    <section
+      id="work"
+      className="mb-24 mx-auto container px-10 text-gray-800 dark:text-gray-200">
+      <h2 className="mb-16 text-center">{t('testimonials.title')}</h2>
       <div className="mx-auto w-full max-w-xl flex flex-col justify-center items-center">
         <picture>
           <img

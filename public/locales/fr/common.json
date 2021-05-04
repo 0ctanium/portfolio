@@ -5,5 +5,15 @@
       "blog": "Blog",
       "contact": "Contactez-moi"
     }
+  },
+  "footer": {
+    "theme": {
+      "light": "Activer le mode clair",
+      "dark": "Activer le mode sombre"
+    },
+    "lang": {
+      "fr": "changer la langue du site en Français",
+      "en": "changer la langue du site en Anglais"
+    }
   }
 }
