@@ -1,5 +1,10 @@
 const { i18n } = require('./next-i18next.config');
 
+require('@next/env').loadEnvConfig(
+  process.cwd(),
+  process.env.NODE_ENV === 'development'
+);
+
 module.exports = {
   siteUrl: process.env.SITE_URL,
   generateRobotsTxt: true,
@@ -22,12 +27,11 @@ module.exports = {
       'xhtml:link': i18n.locales
         .map(
           (locale) =>
-            !isLocalized ||
-            (currentLocale !== locale && {
+            (!isLocalized || currentLocale !== locale) && {
               rel: 'alternate',
               hreflang: locale,
-              href: `/${locale}${pathWithoutLocate}`,
-            })
+              href: `${config.siteUrl}/${locale}${pathWithoutLocate}`,
+            }
         )
         .filter(Boolean),
     };
