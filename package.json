@@ -5,14 +5,13 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && yarn postbuild",
-    "postbuild": "next-sitemap",
+    "postbuild": "node node_modules/@octanium/next-sitemap/dist/cjs/cli.js",
     "export": "yarn build && next export",
     "prestart": "yarn build && next start",
     "start": "yarn prestart && next start",
     "start:skip": "next start",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "sitemap": "next-sitemap"
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "@headlessui/react": "^0.3.1-d519f7d",
