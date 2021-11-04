@@ -37,5 +37,5 @@ yarn-error.log*
 .idea
 
 # auto generated files
-./public/sitemap.xml
-./public/robots.txt
+public/sitemap.xml
+public/robots.txt
