@@ -35,11 +35,13 @@ function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <>
       <DefaultSeo
+        titleTemplate={'%s - Benjamin Lepas'}
+        defaultTitle={'Benjamin Lepas'}
         openGraph={{
           type: 'website',
-          locale: locale,
-          url: 'https://benjaminlepas.fr/',
+          url: process.env.NEXT_PUBLIC_SITE_URL,
           site_name: 'Benjamin Lepas',
+          locale
         }}
         twitter={{
           handle: '@0ctanium',

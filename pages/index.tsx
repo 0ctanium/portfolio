@@ -16,18 +16,34 @@ import Works from '@src/components/Home/Work';
 import { NextSeo } from 'next-seo';
 import Testimonials from '@src/components/Home/Testimonials';
 import Footer from '@src/components/Footer';
+import {useRouter} from "next/router";
 
 const HomePage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   events,
 }) => {
   const { t } = useTranslation('home');
+  const { locales } = useRouter();
+
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
+  const pageUrl = "/"
 
   return (
     <>
       <NextSeo
         title={t('page.title')}
         description={t('page.desc')}
-        canonical="https://benjaminlepas.fr/"
+        canonical={siteUrl + pageUrl}
+        openGraph={{ description: t('page.desc') }}
+        languageAlternates={[
+          {
+            hrefLang: 'x-default',
+            href: siteUrl + pageUrl,
+          },
+          ...locales.map((locale) => ({
+            hrefLang: locale,
+            href: siteUrl + "/" + locale + pageUrl,
+          }))
+        ]}
       />
 
       <Header />
