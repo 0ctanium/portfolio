@@ -1,4 +1,6 @@
 import React from 'react';
+import Image from 'next/image'
+import avatar from '@public/static/testimonials/avatar.png';
 import { useTranslation } from 'next-i18next';
 
 const Testimonials: React.FC = () => {
@@ -11,8 +13,8 @@ const Testimonials: React.FC = () => {
       <h2 className="mb-16 text-center">{t('testimonials.title')}</h2>
       <div className="mx-auto w-full max-w-xl flex flex-col justify-center items-center">
         <picture>
-          <img
-            src="/static/testimonials/avatar.png"
+          <Image
+            src={avatar}
             alt="avatar"
             className="rounded-full w-24 h-24 mb-4"
             width="96"

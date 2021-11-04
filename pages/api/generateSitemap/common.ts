@@ -5,7 +5,9 @@ import fs from 'fs';
 const generateCommonSitemap: NextApiHandler = async (req, res) => {
   try {
     fs.unlinkSync('./public/sitemap.xml');
-  } catch (e) {}
+  } catch (e) {
+    // ignore errors
+  }
 
   require('@next/env').loadEnvConfig(
     process.cwd(),

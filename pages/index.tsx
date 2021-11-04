@@ -7,8 +7,7 @@ import About from '@src/components/Home/About';
 import Tasks from '@src/components/Home/Tasks';
 import Background from '@src/components/Home/Background';
 
-import { admin } from '@src/services/firebase/admin';
-import { DownloadResponse } from '@google-cloud/storage';
+import { firestore, storage } from '@src/services/firebase/admin';
 import matter from 'gray-matter';
 import { Timeline } from '@src/types';
 import { SSRConfig, useTranslation } from 'next-i18next';
@@ -17,18 +16,34 @@ import Works from '@src/components/Home/Work';
 import { NextSeo } from 'next-seo';
 import Testimonials from '@src/components/Home/Testimonials';
 import Footer from '@src/components/Footer';
+import {useRouter} from "next/router";
 
 const HomePage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   events,
 }) => {
   const { t } = useTranslation('home');
+  const { locales } = useRouter();
+
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
+  const pageUrl = "/"
 
   return (
     <>
       <NextSeo
         title={t('page.title')}
         description={t('page.desc')}
-        canonical="https://benjaminlepas.fr/"
+        canonical={siteUrl + pageUrl}
+        openGraph={{ description: t('page.desc') }}
+        languageAlternates={[
+          {
+            hrefLang: 'x-default',
+            href: siteUrl + pageUrl,
+          },
+          ...locales.map((locale) => ({
+            hrefLang: locale,
+            href: siteUrl + "/" + locale + pageUrl,
+          }))
+        ]}
       />
 
       <Header />
@@ -62,7 +77,7 @@ interface HomePageProps extends SSRConfig {
 }
 
 async function getTimelineEventFile(key: string, locale: string) {
-  const bucket = admin.storage().bucket();
+  const bucket = storage.bucket();
 
   let file = bucket.file(`timeline/${key}.${locale}.md`);
 
@@ -76,7 +91,6 @@ async function getTimelineEventFile(key: string, locale: string) {
 export const getStaticProps: GetStaticProps<HomePageProps> = async ({
   locale,
 }) => {
-  const firestore = admin.firestore();
   const snapshot = await firestore.collection('timeline').get();
 
   const events = [];
@@ -90,12 +104,7 @@ export const getStaticProps: GetStaticProps<HomePageProps> = async ({
     }
 
     if ((await file.exists())[0]) {
-      let fileContent: DownloadResponse;
-      try {
-        fileContent = await file.download();
-      } catch (e) {
-        throw e;
-      }
+      const fileContent = await file.download();
 
       const { data: meta, content } = matter(fileContent.toString());
 

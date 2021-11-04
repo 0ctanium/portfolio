@@ -1,30 +1,23 @@
 module.exports = {
-  parser: '@typescript-eslint/parser',
   extends: [
+    'eslint:recommended',
+    'next',
+    'prettier',
     'plugin:@typescript-eslint/recommended',
-    'prettier/@typescript-eslint',
-    'react-app',
-    'plugin:prettier/recommended',
   ],
-  plugins: ['@typescript-eslint', 'react', 'jsx-a11y'],
-  rules: {
-    'jsx-a11y/anchor-is-valid': 0,
-    '@typescript-eslint/no-var-requires': 0,
-    '@typescript-eslint/explicit-function-return-type': 0,
-    '@typescript-eslint/no-explicit-any': 0,
-    '@typescript-eslint/ban-ts-comment': 0,
+  env: {
+    node: true,
+    es6: true,
   },
-  overrides: [
-    {
-      files: ['pages/api/**/*.ts'],
-      rules: {
-        'import/no-anonymous-default-export': 0,
-      },
-    },
-  ],
-  settings: {
-    'import/resolver': {
-      'babel-module': {},
-    },
+  parserOptions: {
+    ecmaVersion: 2020,
+  },
+  rules: {
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+
+    '@typescript-eslint/no-var-requires': 'off',
+    '@typescript-eslint/ban-ts-comment': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
   },
 };

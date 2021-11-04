@@ -35,17 +35,37 @@ function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <>
       <DefaultSeo
+        titleTemplate={'%s - Benjamin Lepas'}
+        defaultTitle={'Benjamin Lepas'}
         openGraph={{
           type: 'website',
-          locale: locale,
-          url: 'https://benjaminlepas.fr/',
+          url: process.env.NEXT_PUBLIC_SITE_URL,
           site_name: 'Benjamin Lepas',
+          locale,
+          images: [
+            {
+              url: process.env.NEXT_PUBLIC_SITE_URL + '/icons/apple-touch-icon.png',
+              alt: "Benjamin's logo",
+            }
+          ],
         }}
         twitter={{
           handle: '@0ctanium',
           site: '@0ctanium',
           cardType: 'summary_large_image',
         }}
+        additionalMetaTags={[
+          {name:'application-name', content:'Benjamin Lepas' },
+          {name:'apple-mobile-web-app-capable', content:'yes' },
+          {name:'apple-mobile-web-app-status-bar-style', content:'default' },
+          {name:'apple-mobile-web-app-title', content:'Benjamin Lepas' },
+          {name:'format-detection', content:'telephone=no' },
+          {name:'mobile-web-app-capable', content:'yes' },
+          {name:'msapplication-config', content:'/icons/browserconfig.xml' },
+          {name:'msapplication-TileColor', content:'#fff' },
+          {name:'msapplication-TileImage', content:'/icons/favicon-144.png' },
+          {name:'theme-color', content:'#000000' },
+        ]}
       />
       <Component {...pageProps} />
     </>

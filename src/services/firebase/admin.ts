@@ -1,4 +1,6 @@
-import * as admin from 'firebase-admin';
+import { initializeApp, cert, getApps, App } from 'firebase-admin/app';
+import { getFirestore, Firestore } from 'firebase-admin/firestore';
+import { getStorage, Storage } from 'firebase-admin/storage';
 
 const privateKey = JSON.parse(process.env.FIREBASE_PRIVATE_KEY);
 const clientEmail = process.env.FIREBASE_CLIENT_EMAIL;
@@ -10,15 +12,22 @@ if (!privateKey || !clientEmail || !projectId) {
   );
 }
 
-if (!admin.apps.length) {
-  admin.initializeApp({
-    credential: admin.credential.cert({
+let app: App;
+let firestore: Firestore;
+let storage: Storage;
+
+if (!getApps().length) {
+  app = initializeApp({
+    credential: cert({
       privateKey: privateKey,
       clientEmail,
       projectId,
     }),
+    projectId,
     storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
   });
+  firestore = getFirestore(app);
+  storage = getStorage(app);
 }
 
-export { admin };
+export { firestore, storage };

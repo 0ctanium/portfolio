@@ -1,4 +1,4 @@
-const { i18n } = require('./next-i18next.config');
+const {i18n} = require('./next-i18next.config');
 
 require('@next/env').loadEnvConfig(
   process.cwd(),
@@ -6,13 +6,13 @@ require('@next/env').loadEnvConfig(
 );
 
 module.exports = {
-  siteUrl: process.env.SITE_URL,
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL,
   generateRobotsTxt: true,
   sitemapSize: 7000,
   exclude: ['/next/*'],
   i18n: i18n,
   transform: async (config, path) => {
-    const [_, currentLocale] = path.split('/');
+    const [, currentLocale] = path.split('/');
     const isLocalized = i18n.locales.includes(currentLocale);
     const pathWithoutLocate = isLocalized
       ? path.substring(currentLocale.length + 1)

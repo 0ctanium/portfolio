@@ -1,4 +1,5 @@
 import React, { useCallback } from 'react';
+import Image from 'next/image';
 import { FiMoon, FiSun } from 'react-icons/fi';
 import { useTranslation } from 'next-i18next';
 import useTheme, { Theme } from '@src/hooks/useTheme';
@@ -80,7 +81,7 @@ const Social: React.FC<SocialProps> = ({ link, src, alt }) => (
     rel="noreferrer"
     target="_blank"
     className="w-10 h-10 border border-white flex justify-center items-center rounded-full mr-4 last:mr-0 text-white">
-    <img src={src} alt={alt} className="w-5 h-5" width="20" height="20" />
+    <Image src={src} alt={alt} className="w-5 h-5" width="20" height="20" />
   </a>
 );
 
