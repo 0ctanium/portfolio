@@ -8,7 +8,6 @@ import Tasks from '@src/components/Home/Tasks';
 import Background from '@src/components/Home/Background';
 
 import { admin } from '@src/services/firebase/admin';
-import { DownloadResponse } from '@google-cloud/storage';
 import matter from 'gray-matter';
 import { Timeline } from '@src/types';
 import { SSRConfig, useTranslation } from 'next-i18next';
@@ -90,12 +89,7 @@ export const getStaticProps: GetStaticProps<HomePageProps> = async ({
     }
 
     if ((await file.exists())[0]) {
-      let fileContent: DownloadResponse;
-      try {
-        fileContent = await file.download();
-      } catch (e) {
-        throw e;
-      }
+      const fileContent = await file.download();
 
       const { data: meta, content } = matter(fileContent.toString());
 

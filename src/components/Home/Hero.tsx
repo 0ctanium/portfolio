@@ -34,11 +34,11 @@ const Hero: React.FC = () => {
                 values={{
                   name: 'Ben',
                 }}>
-                Hi, I'm
+                {"Hi, I'm"}
                 <span className="text-gradient bg-gradient-to-r from-blue-800 to-yellow-600 via-pink-700">
                   Ben
                 </span>
-                , a web developer
+                {", a web developer"}
               </Trans>
             </h1>
             <p className="text-xl font-light font-sans text-gray-600 dark:text-gray-400">

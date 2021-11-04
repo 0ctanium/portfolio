@@ -22,13 +22,14 @@
     "jsx": "preserve",
     "baseUrl": "./",
     "paths": {
-      "@pages/*": [
-        "pages/*"
-      ],
-      "@src/*": [
-        "src/*"
-      ]
-    }
+      "@pages/*": ["pages/*"],
+      "@public/*": ["public/*"],
+      "@src/*": ["src/*"]
+    },
+    "typeRoots": [
+      "node_modules/@types",
+      "src/types"
+    ]
   },
   "exclude": [
     "node_modules",
@@ -38,11 +39,7 @@
   ],
   "include": [
     "next-env.d.ts",
-    "./src/**/*.ts",
-    "./src/**/*.tsx",
     "**/*.ts",
     "**/*.tsx",
-    "node_modules/eslint-plugin-react/lib/types.d.ts",
-    "node_modules/eslint-plugin-react/lib/types.d.ts"
   ]
 }

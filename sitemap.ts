@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { GetStaticPathsResult } from 'next';
 import prettier from 'prettier';
 import path from 'path';
@@ -29,10 +30,10 @@ const generateSitemap: GenerateSitemap = ({
 
   const apiFullPath = path
     .resolve(`${basePath}/api`)
-    .replace(/([=!:$\/()])/g, '\\$1');
+    .replace(/([=!:$/()])/g, '\\$1');
   const nextFullPath = path
     .resolve(`${basePath}/next`)
-    .replace(/([=!:$\/()])/g, '\\$1');
+    .replace(/([=!:$/()])/g, '\\$1');
   const apiReg = new RegExp(`^${apiFullPath}`, 'gm');
   const nextReg = new RegExp(`^${nextFullPath}`, 'gm');
 
@@ -43,7 +44,7 @@ const generateSitemap: GenerateSitemap = ({
       const { name } = path.parse(fullPath);
 
       return (
-        !nextReg.test(fullPath) && !apiReg.test(fullPath) && !/^\_/g.test(name)
+        !nextReg.test(fullPath) && !apiReg.test(fullPath) && !/^_/g.test(name)
       );
     },
   });
@@ -55,7 +56,7 @@ const generateSitemap: GenerateSitemap = ({
         if (module.default) {
           if (!/.js/g.test(pathname)) {
             // check if pathname is a dynamic route
-            if (/\[(.*)\]/g.test(pathname)) {
+            if (/\[(.*)]/g.test(pathname)) {
               // check if dynamic route exports getStaticPaths
               if (module.getStaticPaths) {
                 const {

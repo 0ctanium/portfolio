@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image'
 import { useTranslation } from 'next-i18next';
 import { HiOutlineCode, HiOutlineDesktopComputer } from 'react-icons/hi';
 import clsx from 'clsx';
@@ -259,7 +260,7 @@ const CircleSkill: React.FC<Skill> = ({ url, label, color, percent }) => {
         </div>
         <div className="w-full h-full flex items-center justify-center border-6 border-gray-800 dark:border-gray-600 rounded-full relative mb-2">
           <picture>
-            <img
+            <Image
               src={url}
               alt={label}
               className="w-8 h-8"
@@ -301,7 +302,7 @@ const SkillBar: React.FC<SkillBarProps> = ({
         )}
         style={{ borderColor: color }}>
         <picture>
-          <img
+          <Image
             src={url}
             alt={label}
             className={clsx(small ? 'w-8 h-8' : 'w-10 h-10')}
