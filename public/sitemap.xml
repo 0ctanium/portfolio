@@ -9,7 +9,7 @@
 >
   <url
     ><loc>https://benjaminlepas.fr</loc><changefreq>daily</changefreq
-    ><lastmod>2021-05-04T23:03:31.023Z</lastmod
+    ><lastmod>2021-11-04T11:57:07.876Z</lastmod
     ><xhtml:link
       rel="alternate"
       hreflang="en"
@@ -19,7 +19,7 @@
       href="https://benjaminlepas.fr/fr/" /></url
   ><url
     ><loc>https://benjaminlepas.fr/blog</loc><changefreq>daily</changefreq
-    ><lastmod>2021-05-04T23:03:31.023Z</lastmod
+    ><lastmod>2021-11-04T11:57:07.877Z</lastmod
     ><xhtml:link
       rel="alternate"
       hreflang="en"
@@ -29,7 +29,7 @@
       href="https://benjaminlepas.fr/fr/blog" /></url
   ><url
     ><loc>https://benjaminlepas.fr/contact</loc><changefreq>daily</changefreq
-    ><lastmod>2021-05-04T23:03:31.023Z</lastmod
+    ><lastmod>2021-11-04T11:57:07.877Z</lastmod
     ><xhtml:link
       rel="alternate"
       hreflang="en"
@@ -38,45 +38,115 @@
       hreflang="fr"
       href="https://benjaminlepas.fr/fr/contact" /></url
   ><url
-    ><loc>https://benjaminlepas.fr/en</loc><changefreq>daily</changefreq
-    ><lastmod>2021-05-04T23:03:31.023Z</lastmod
-    ><xhtml:link
-      rel="alternate"
-      hreflang="fr"
-      href="https://benjaminlepas.fr/fr/" /></url
-  ><url
     ><loc>https://benjaminlepas.fr/en/blog</loc><changefreq>daily</changefreq
-    ><lastmod>2021-05-04T23:03:31.023Z</lastmod
+    ><lastmod>2021-11-04T11:57:07.877Z</lastmod
     ><xhtml:link
       rel="alternate"
       hreflang="fr"
       href="https://benjaminlepas.fr/fr/blog" /></url
   ><url
     ><loc>https://benjaminlepas.fr/en/contact</loc><changefreq>daily</changefreq
-    ><lastmod>2021-05-04T23:03:31.023Z</lastmod
+    ><lastmod>2021-11-04T11:57:07.877Z</lastmod
     ><xhtml:link
       rel="alternate"
       hreflang="fr"
       href="https://benjaminlepas.fr/fr/contact" /></url
   ><url
     ><loc>https://benjaminlepas.fr/fr</loc><changefreq>daily</changefreq
-    ><lastmod>2021-05-04T23:03:31.023Z</lastmod
+    ><lastmod>2021-11-04T11:57:07.877Z</lastmod
+    ><xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://benjaminlepas.fr/en" /></url
+  ><url
+    ><loc>https://benjaminlepas.fr/en</loc><changefreq>daily</changefreq
+    ><lastmod>2021-11-04T11:57:07.877Z</lastmod
+    ><xhtml:link
+      rel="alternate"
+      hreflang="fr"
+      href="https://benjaminlepas.fr/fr" /></url
+  ><url
+    ><loc>https://benjaminlepas.fr/en</loc><changefreq>daily</changefreq
+    ><lastmod>2021-11-04T11:57:07.877Z</lastmod
+    ><xhtml:link
+      rel="alternate"
+      hreflang="fr"
+      href="https://benjaminlepas.fr/fr/" /></url
+  ><url
+    ><loc>https://benjaminlepas.fr/en/en/blog</loc><changefreq>daily</changefreq
+    ><lastmod>2021-11-04T11:57:07.877Z</lastmod
+    ><xhtml:link
+      rel="alternate"
+      hreflang="fr"
+      href="https://benjaminlepas.fr/fr/en/blog" /></url
+  ><url
+    ><loc>https://benjaminlepas.fr/en/en/contact</loc
+    ><changefreq>daily</changefreq><lastmod>2021-11-04T11:57:07.877Z</lastmod
+    ><xhtml:link
+      rel="alternate"
+      hreflang="fr"
+      href="https://benjaminlepas.fr/fr/en/contact" /></url
+  ><url
+    ><loc>https://benjaminlepas.fr/en/fr</loc><changefreq>daily</changefreq
+    ><lastmod>2021-11-04T11:57:07.877Z</lastmod
+    ><xhtml:link
+      rel="alternate"
+      hreflang="fr"
+      href="https://benjaminlepas.fr/fr/fr" /></url
+  ><url
+    ><loc>https://benjaminlepas.fr/en/en</loc><changefreq>daily</changefreq
+    ><lastmod>2021-11-04T11:57:07.877Z</lastmod
+    ><xhtml:link
+      rel="alternate"
+      hreflang="fr"
+      href="https://benjaminlepas.fr/fr/en" /></url
+  ><url
+    ><loc>https://benjaminlepas.fr/fr</loc><changefreq>daily</changefreq
+    ><lastmod>2021-11-04T11:57:07.877Z</lastmod
     ><xhtml:link
       rel="alternate"
       hreflang="en"
       href="https://benjaminlepas.fr/en/" /></url
   ><url
     ><loc>https://benjaminlepas.fr/fr/blog</loc><changefreq>daily</changefreq
-    ><lastmod>2021-05-04T23:03:31.023Z</lastmod
+    ><lastmod>2021-11-04T11:57:07.877Z</lastmod
     ><xhtml:link
       rel="alternate"
       hreflang="en"
       href="https://benjaminlepas.fr/en/blog" /></url
   ><url
     ><loc>https://benjaminlepas.fr/fr/contact</loc><changefreq>daily</changefreq
-    ><lastmod>2021-05-04T23:03:31.023Z</lastmod
+    ><lastmod>2021-11-04T11:57:07.877Z</lastmod
     ><xhtml:link
       rel="alternate"
       hreflang="en"
       href="https://benjaminlepas.fr/en/contact" /></url
+  ><url
+    ><loc>https://benjaminlepas.fr/fr/en/blog</loc><changefreq>daily</changefreq
+    ><lastmod>2021-11-04T11:57:07.877Z</lastmod
+    ><xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://benjaminlepas.fr/en/en/blog" /></url
+  ><url
+    ><loc>https://benjaminlepas.fr/fr/en/contact</loc
+    ><changefreq>daily</changefreq><lastmod>2021-11-04T11:57:07.877Z</lastmod
+    ><xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://benjaminlepas.fr/en/en/contact" /></url
+  ><url
+    ><loc>https://benjaminlepas.fr/fr/fr</loc><changefreq>daily</changefreq
+    ><lastmod>2021-11-04T11:57:07.877Z</lastmod
+    ><xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://benjaminlepas.fr/en/fr" /></url
+  ><url
+    ><loc>https://benjaminlepas.fr/fr/en</loc><changefreq>daily</changefreq
+    ><lastmod>2021-11-04T11:57:07.877Z</lastmod
+    ><xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://benjaminlepas.fr/en/en" /></url
 ></urlset>

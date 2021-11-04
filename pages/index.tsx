@@ -7,7 +7,7 @@ import About from '@src/components/Home/About';
 import Tasks from '@src/components/Home/Tasks';
 import Background from '@src/components/Home/Background';
 
-import { admin } from '@src/services/firebase/admin';
+import { firestore, storage } from '@src/services/firebase/admin';
 import matter from 'gray-matter';
 import { Timeline } from '@src/types';
 import { SSRConfig, useTranslation } from 'next-i18next';
@@ -61,7 +61,7 @@ interface HomePageProps extends SSRConfig {
 }
 
 async function getTimelineEventFile(key: string, locale: string) {
-  const bucket = admin.storage().bucket();
+  const bucket = storage.bucket();
 
   let file = bucket.file(`timeline/${key}.${locale}.md`);
 
@@ -75,7 +75,6 @@ async function getTimelineEventFile(key: string, locale: string) {
 export const getStaticProps: GetStaticProps<HomePageProps> = async ({
   locale,
 }) => {
-  const firestore = admin.firestore();
   const snapshot = await firestore.collection('timeline').get();
 
   const events = [];
