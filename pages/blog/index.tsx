@@ -7,16 +7,32 @@ import { NextSeo } from 'next-seo';
 import Footer from '@src/components/Footer';
 import { BsGearFill } from 'react-icons/bs';
 import { useTranslation } from 'next-i18next';
+import {useRouter} from "next/router";
 
 const Index: NextPage = () => {
   const { t } = useTranslation('blog');
+  const { locales } = useRouter();
+
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
+  const pageUrl = "/blog"
 
   return (
     <>
       <NextSeo
         title={t('page.title')}
         description={t('page.desc')}
-        canonical="https://benjaminlepas.fr/blog"
+        canonical={siteUrl + pageUrl}
+        openGraph={{ description: t('page.desc') }}
+        languageAlternates={[
+          {
+            hrefLang: 'x-default',
+            href: siteUrl + pageUrl,
+          },
+          ...locales.map((locale) => ({
+            hrefLang: locale,
+            href: siteUrl + "/" + locale + pageUrl,
+          }))
+        ]}
       />
 
       <Header />
