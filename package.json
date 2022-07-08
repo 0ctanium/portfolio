@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && yarn postbuild",
-    "postbuild": "node node_modules/@octanium/next-sitemap/dist/cjs/cli.js",
+    "postbuild": "next-sitemap",
     "export": "next export",
     "start": "next start",
     "lint": "eslint .",
@@ -13,7 +13,6 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.6.6",
-    "@octanium/next-sitemap": "^1.0.2",
     "@svgr/webpack": "^6.2.1",
     "autoprefixer": "^10.4.7",
     "browserslist": "^4.21.1",
@@ -28,6 +27,7 @@
     "next-i18next": "^11.0.0",
     "next-pwa": "^5.5.4",
     "next-seo": "^5.4.0",
+    "next-sitemap": "^3.1.10",
     "overlayscrollbars": "^1.13.2",
     "overlayscrollbars-react": "^0.3.0",
     "postcss": "^8.4.14",

@@ -15,7 +15,7 @@ const Nav: React.FC = () => {
       <NavItem route={'contact'}>
         {({ active, route, t }) => (
           <a className={clsx('btn-blue-700 dark:btn-blue-500', active && '')}>
-            {t(`header.nav.${route}`)}
+            {t(`header.nav.${route}`) as string}
           </a>
         )}
       </NavItem>
