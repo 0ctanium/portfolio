@@ -1,6 +1,6 @@
 import { initializeApp, cert, getApps, App } from 'firebase-admin/app';
-import { getFirestore, Firestore } from 'firebase-admin/firestore';
-import { getStorage, Storage } from 'firebase-admin/storage';
+import { getFirestore } from 'firebase-admin/firestore';
+import { getStorage } from 'firebase-admin/storage';
 
 const privateKey = JSON.parse(process.env.FIREBASE_PRIVATE_KEY);
 const clientEmail = process.env.FIREBASE_CLIENT_EMAIL;
@@ -13,9 +13,6 @@ if (!privateKey || !clientEmail || !projectId) {
 }
 
 let app: App;
-let firestore: Firestore;
-let storage: Storage;
-
 if (!getApps().length) {
   app = initializeApp({
     credential: cert({
@@ -26,8 +23,9 @@ if (!getApps().length) {
     projectId,
     storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
   });
-  firestore = getFirestore(app);
-  storage = getStorage(app);
 }
+
+const firestore = getFirestore(app);
+const storage = getStorage(app);
 
 export { firestore, storage };

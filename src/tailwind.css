@@ -79,20 +79,18 @@
 }
 
 @layer utilities {
-  @responsive {
-    .absolute-center {
-      @apply absolute transform;
-    }
+  .absolute-center {
+    @apply absolute transform;
+  }
 
-    .absolute-x-center {
-      @apply absolute-center left-1/2;
-      --tw-translate-x: -50% !important;
-    }
+  .absolute-x-center {
+    @apply absolute-center left-1/2;
+    --tw-translate-x: -50% !important;
+  }
 
-    .absolute-y-center {
-      @apply absolute-center top-1/2;
-      --tw-translate-y: -50% !important;
-    }
+  .absolute-y-center {
+    @apply absolute-center top-1/2;
+    --tw-translate-y: -50% !important;
   }
 
   .text-gradient {
