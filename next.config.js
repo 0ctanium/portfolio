@@ -8,5 +8,13 @@ module.exports = withPWA({
     dest: 'public',
     runtimeCaching,
     buildExcludes: [/middleware-manifest.json$/]
+  },
+  webpack(config) {
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ["@svgr/webpack"]
+    });
+
+    return config;
   }
 });

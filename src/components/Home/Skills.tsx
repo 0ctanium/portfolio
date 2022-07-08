@@ -1,10 +1,33 @@
 import React from 'react';
-import Image from 'next/image'
 import { useTranslation } from 'next-i18next';
 import { HiOutlineCode, HiOutlineDesktopComputer } from 'react-icons/hi';
 import clsx from 'clsx';
 import { FaHandRock, FaRegLightbulb } from 'react-icons/fa';
 import { AiOutlineHourglass } from 'react-icons/ai';
+
+import JsIcon from '@public/static/js.svg'
+import ReactIcon from '@public/static/react.svg'
+import NextIcon from '@public/static/nextjs.svg'
+import CssIcon from '@public/static/css.svg'
+import AfterEffectIcon from '@public/static/after.svg'
+import ExpressIcon from '@public/static/express.svg'
+import FirebaseIcon from '@public/static/firebase.svg'
+import GraphQLIcon from '@public/static/graphql.svg'
+import HTMLIcon from '@public/static/html.svg'
+import IllustratorIcon from '@public/static/illustrator.svg'
+import InDesignIcon from '@public/static/indesign.svg'
+import XDIcon from '@public/static/xd.svg'
+import LinuxIcon from '@public/static/linux.svg'
+import MaterialIcon from '@public/static/material.svg'
+import MongoIcon from '@public/static/mongo.svg'
+import NodeIcon from '@public/static/node.svg'
+import PhotoshopIcon from '@public/static/photoshop.svg'
+import PhpIcon from '@public/static/php.svg'
+import PostgreIcon from '@public/static/postgre.svg'
+import PremiereIcon from '@public/static/premiere.svg'
+import ReduxIcon from '@public/static/redux.svg'
+import SymfonyIcon from '@public/static/symfony.svg'
+import TailwindIcon from '@public/static/tailwind.svg'
 
 const Skills: React.FC = () => {
   const { t } = useTranslation('home');
@@ -26,33 +49,33 @@ const Skills: React.FC = () => {
           </div>
 
           <SkillBar
-            url="/static/js.svg"
+            icon={JsIcon}
             label="Javascript / Typescript"
             color="#F7DF1E"
             percent={90}
           />
           <SkillBar
-            url="/static/react.svg"
+            icon={ReactIcon}
             label="React"
             color="#61DAFB"
             percent={85}
           />
           <SkillBar
-            url="/static/nextjs.svg"
+            icon={NextIcon}
             label="Next.js"
             color="#000000"
             percent={65}
           />
           <div className="grid grid-cols-2 mb-2">
             <SkillBar
-              url="/static/html.svg"
+              icon={HTMLIcon}
               label="HTML"
               color="#FA502E"
               percent={95}
               small
             />
             <SkillBar
-              url="/static/css.svg"
+              icon={CssIcon}
               label="CSS"
               color="#2965F1"
               percent={90}
@@ -63,19 +86,19 @@ const Skills: React.FC = () => {
           </div>
           <div className="grid grid-cols-3">
             <CircleSkill
-              url="/static/tailwind.svg"
+              icon={TailwindIcon}
               label="TailwindCSS"
               color="#06B6D4"
               percent={65}
             />
             <CircleSkill
-              url="/static/material.svg"
+              icon={MaterialIcon}
               label="Material-UI"
               color="#0081CB"
               percent={80}
             />
             <CircleSkill
-              url="/static/redux.svg"
+              icon={ReduxIcon}
               label="Redux"
               color="#764ABC"
               percent={90}
@@ -92,21 +115,21 @@ const Skills: React.FC = () => {
           </div>
 
           <SkillBar
-            url="/static/graphql.svg"
+            icon={GraphQLIcon}
             label="GraphQL"
             color="#E535AB"
             percent={70}
             reverse
           />
           <SkillBar
-            url="/static/mongo.svg"
+            icon={MongoIcon}
             label="MongoDB"
             color="#10AA50"
             percent={65}
             reverse
           />
           <SkillBar
-            url="/static/firebase.svg"
+            icon={FirebaseIcon}
             label="Firebase"
             color="#FFA000"
             percent={60}
@@ -115,14 +138,14 @@ const Skills: React.FC = () => {
 
           <div className="grid grid-cols-2 mb-2">
             <SkillBar
-              url="/static/node.svg"
+              icon={NodeIcon}
               label="Node.js"
               color="#539E43"
               percent={80}
               small
             />
             <SkillBar
-              url="/static/express.svg"
+              icon={ExpressIcon}
               label="Express"
               color="#000000"
               percent={70}
@@ -133,19 +156,19 @@ const Skills: React.FC = () => {
 
           <div className="grid grid-cols-3">
             <CircleSkill
-              url="/static/php.svg"
+              icon={PhpIcon}
               label="PHP"
               color="#777BB3"
               percent={90}
             />
             <CircleSkill
-              url="/static/symfony.svg"
+              icon={SymfonyIcon}
               label="Symfony"
               color="#000000"
               percent={80}
             />
             <CircleSkill
-              url="/static/postgre.svg"
+              icon={PostgreIcon}
               label="PostgreSQL"
               color="#336791"
               percent={40}
@@ -159,43 +182,43 @@ const Skills: React.FC = () => {
           </h5>
           <div className="flex justify-between items-center flex-wrap">
             <CircleSkill
-              url="/static/linux.svg"
+              icon={LinuxIcon}
               label="Linux/GNU"
               color="#FFC107"
               percent={75}
             />
             <CircleSkill
-              url="/static/xd.svg"
+              icon={XDIcon}
               label="Adobe XD"
               color="#FF61F6"
               percent={25}
             />
             <CircleSkill
-              url="/static/indesign.svg"
+              icon={InDesignIcon}
               label="Indesign"
               color="#FF3366"
               percent={20}
             />
             <CircleSkill
-              url="/static/illustrator.svg"
+              icon={IllustratorIcon}
               label="Illustrator"
               color="#FF9A00"
               percent={12}
             />
             <CircleSkill
-              url="/static/photoshop.svg"
+              icon={PhotoshopIcon}
               label="Photoshop"
               color="#31A8FF"
               percent={17}
             />
             <CircleSkill
-              url="/static/after.svg"
+              icon={AfterEffectIcon}
               label="After Effects"
               color="#9999FF"
               percent={24}
             />
             <CircleSkill
-              url="/static/premiere.svg"
+              icon={PremiereIcon}
               label="Premiere Pro"
               color="#9999FF"
               percent={20}
@@ -227,14 +250,14 @@ const Skills: React.FC = () => {
 };
 
 interface Skill {
-  url: string;
+  icon: React.FC<React.SVGProps<any>>;
   label: string;
   color: string;
   /** Range: 0 < 100 */
   percent: number;
 }
 
-const CircleSkill: React.FC<Skill> = ({ url, label, color, percent }) => {
+const CircleSkill: React.FC<Skill> = ({ icon: Icon, label, color, percent }) => {
   return (
     <div className="flex-grow flex flex-col justify-center items-center mb-6">
       <div className="block relative h-16 w-16">
@@ -259,7 +282,8 @@ const CircleSkill: React.FC<Skill> = ({ url, label, color, percent }) => {
           </div>
         </div>
         <div className="w-full h-full flex items-center justify-center border-6 border-gray-800 dark:border-gray-600 rounded-full relative mb-2">
-          <picture>
+          <Icon className="w-8 h-8"/>
+          {/*<picture>
             <Image
               src={url}
               alt={label}
@@ -267,7 +291,7 @@ const CircleSkill: React.FC<Skill> = ({ url, label, color, percent }) => {
               height="32"
               width="32"
             />
-          </picture>
+          </picture>*/}
         </div>
       </div>
       <span className="mx-3 mt-1 font-medium text-lg font-display text-gray-800 dark:text-gray-200">
@@ -284,7 +308,7 @@ interface SkillBarProps extends Skill {
 }
 
 const SkillBar: React.FC<SkillBarProps> = ({
-  url,
+  icon: Icon,
   label,
   color,
   percent,
@@ -302,13 +326,14 @@ const SkillBar: React.FC<SkillBarProps> = ({
         )}
         style={{ borderColor: color }}>
         <picture>
-          <Image
+          <Icon className={clsx(small ? 'w-8 h-8' : 'w-10 h-10')} />
+          {/*<Image
             src={url}
             alt={label}
             className={clsx(small ? 'w-8 h-8' : 'w-10 h-10')}
             width={small ? '32' : '40'}
             height={small ? '32' : '40'}
-          />
+          />*/}
         </picture>
       </div>
       <div className={clsx('flex-grow relative')}>
