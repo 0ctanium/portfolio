@@ -8,10 +8,7 @@ export function Cursor() {
   const { resolvedTheme: theme } = useTheme();
   const [outOfView, setOutOfView] = useState(false);
   const [pressed, setPressed] = useState(false);
-  const [cursor, setCursor] = useState<any>({
-    x: undefined,
-    y: undefined,
-  });
+  const [cursor, setCursor] = useState<{ x: number; y: number } | null>(null);
   const [type, setType] = useState<"default" | "pointer">("default");
   const [light, setLight] = useState(false);
 
@@ -72,7 +69,7 @@ export function Cursor() {
     };
   }, [theme]);
 
-  if (cursor.x === undefined || cursor.y === undefined) return null;
+  if (!cursor) return null;
 
   return (
     <motion.div
