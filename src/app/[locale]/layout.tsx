@@ -33,18 +33,6 @@ export async function generateMetadata({
       type: "website",
       siteName: "Benjamin Lepas",
     },
-    other: {
-      "application-name": "Benjamin Lepas",
-      "apple-mobile-web-app-capable": "yes",
-      "apple-mobile-web-app-status-bar-style": "default",
-      "apple-mobile-web-app-title": "Benjamin Lepas",
-      "format-detection": "telephone=no",
-      "mobile-web-app-capable": "yes",
-      "msapplication-config": "/icons/browserconfig.xml",
-      "msapplication-TileColor": "#fff",
-      "msapplication-TileImage": "/icons/favicon-144.png",
-      "theme-color": "#000000",
-    },
   };
 }
 
