@@ -5,7 +5,7 @@ import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
 export function Cursor() {
-  const { theme } = useTheme();
+  const { resolvedTheme: theme } = useTheme();
   const [pressed, setPressed] = useState(false);
   const [cursor, setCursor] = useState<any>({
     x: undefined,

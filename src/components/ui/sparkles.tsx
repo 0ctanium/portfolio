@@ -20,7 +20,7 @@ type ParticlesProps = {
   particleDensity?: number;
 };
 export const SparklesCore = (props: ParticlesProps) => {
-  const { theme } = useTheme();
+  const { resolvedTheme: theme } = useTheme();
   const {
     id,
     className,
