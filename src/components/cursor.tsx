@@ -1,74 +1,45 @@
 "use client";
 
-import { motion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
 export function Cursor() {
   const { resolvedTheme: theme } = useTheme();
+  const [outOfView, setOutOfView] = useState(false);
   const [pressed, setPressed] = useState(false);
   const [cursor, setCursor] = useState<any>({
     x: undefined,
     y: undefined,
-
-    transition: {
-      default: { duration: 0 },
-      scale: { type: "linear", duration: 0.1 },
-      borderRadius: { type: "linear", duration: 0.1 },
-      background: { type: "linear", duration: 0.2 },
-    },
   });
+  const [type, setType] = useState<"default" | "pointer">("default");
+  const [light, setLight] = useState(false);
 
   useEffect(() => {
     const onMouseMove = (e: MouseEvent) => {
-      setCursor((prev: any) => {
-        const cursor: any = { ...prev };
+      let type: "default" | "pointer" = "default";
+      let light = false;
 
-        cursor.x = e.clientX;
-        cursor.y = e.clientY;
+      if (e.target instanceof Element) {
+        const closedClickableElement = e.target.closest("a, [role=button]");
 
-        let type: "default" | "pointer" | "light" = "default";
-
-        if (e.target instanceof Element) {
-          const closedClickableElement = e.target.closest("a, [role=button]");
-
-          // Pointer
-          if (closedClickableElement) {
-            type = "pointer";
-          }
-
-          const heroTitle = e.target.closest("#light");
-          if (heroTitle) {
-            type = "light";
-          }
+        // Pointer
+        if (closedClickableElement) {
+          type = "pointer";
         }
 
-        switch (type) {
-          default:
-          case "default":
-            cursor.scale = 1;
-            cursor.borderTopRightRadius = 99999999999999;
-            cursor.background = theme === "dark" ? "#fff" : "#000";
-            break;
-          case "light":
-            cursor.scale = 1;
-            cursor.borderTopRightRadius = 99999999999999;
-            cursor.background =
-              "radial-gradient(ellipse at top, var(--yellow-500), transparent), radial-gradient(ellipse at bottom, var(--red-500), transparent), radial-gradient(ellipse at left, var(--cyan-500), transparent), radial-gradient(ellipse at right, var(--violet-500), transparent)";
-
-            //         <stop offset="0%" stopColor={"var(--yellow-500)"} />
-            //   <stop offset="25%" stopColor={"var(--red-500)"} />
-            //   <stop offset="50%" stopColor={"var(--blue-500)"} />
-            //   <stop offset="75%" stopColor={"var(--cyan-500)"} />
-            //   <stop offset="100%" stopColor={"var(--violet-500)"} />
-            break;
-          case "pointer":
-            cursor.scale = 1.25;
-            cursor.borderTopRightRadius = 4;
-            break;
+        const heroTitle = e.target.closest("#light");
+        if (heroTitle) {
+          light = true;
         }
+      }
 
-        return cursor;
+      setOutOfView(false);
+      setLight(light);
+      setType(type);
+      setCursor({
+        x: e.clientX,
+        y: e.clientY,
       });
     };
 
@@ -76,10 +47,7 @@ export function Cursor() {
       // @ts-expect-error
       const from = e.relatedTarget ?? e.toElement;
       if (!from) {
-        setCursor((prev: any) => ({
-          ...prev,
-          scale: 0,
-        }));
+        setOutOfView(true);
       }
     };
 
@@ -108,11 +76,50 @@ export function Cursor() {
 
   return (
     <motion.div
-      className="pointer-events-none fixed z-50 size-[16px] block rounded-full transition-colors"
+      className="pointer-events-none fixed z-50 "
       animate={{
         ...cursor,
-        scale: pressed ? cursor.scale * 0.75 : cursor.scale,
+        scale: outOfView ? 0 : pressed ? 0.75 : 1,
       }}
-    />
+      transition={{
+        default: { duration: 0 },
+        scale: { type: "linear", duration: 0.1 },
+      }}
+    >
+      <motion.div
+        variants={{
+          default: {
+            scale: 1,
+            borderTopRightRadius: 99999999999999,
+          },
+          pointer: {
+            scale: 1.25,
+            borderTopRightRadius: 4,
+          },
+        }}
+        animate={type}
+        transition={{
+          type: "linear",
+          duration: 0.1,
+        }}
+        className="size-[16px] block rounded-full bg-black dark:bg-white"
+      >
+        <AnimatePresence>
+          {light && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              className="size-full rounded-full"
+              style={{
+                background:
+                  "radial-gradient(ellipse at top, var(--yellow-500), transparent), radial-gradient(ellipse at bottom, var(--red-500), transparent), radial-gradient(ellipse at left, var(--cyan-500), transparent), radial-gradient(ellipse at right, var(--violet-500), transparent)",
+              }}
+            />
+          )}
+        </AnimatePresence>
+      </motion.div>
+    </motion.div>
   );
 }
