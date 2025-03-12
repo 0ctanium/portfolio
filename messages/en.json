@@ -1,0 +1,15 @@
+{
+  "Metadata": {
+    "title": "Benjamin Lepas",
+    "description": "Hey! Je suis Benjamin Lepas, un développeur. Découvrez mon portfolio"
+  },
+  "Home": {
+    "title": "Hi <shake>👋</shake>, I am <title>Benjamin</title>",
+    "cards": {
+      "linkedin": "Let's connect on LinkedIn",
+      "github": "See my work on Github",
+      "contact": "Contact me",
+      "resume": "Download my resume"
+    }
+  }
+}

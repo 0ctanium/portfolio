@@ -1,0 +1,9 @@
+{
+    "deno.enable": false,
+    "i18n-ally.localesPaths": [
+        "messages",
+        "src/i18n",
+        "old/public/locales"
+    ],
+    "i18n-ally.keystyle": "nested"
+}
