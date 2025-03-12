@@ -1,15 +1,13 @@
 "use client";
 
-import { AnimationControls, motion, TargetAndTransition } from "motion/react";
+import { motion } from "motion/react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-
-type Animate = AnimationControls | TargetAndTransition;
 
 export function Cursor() {
   const { theme } = useTheme();
   const [pressed, setPressed] = useState(false);
-  const [cursor, setCursor] = useState<Animate>({
+  const [cursor, setCursor] = useState<any>({
     x: undefined,
     y: undefined,
 
@@ -23,8 +21,8 @@ export function Cursor() {
 
   useEffect(() => {
     const onMouseMove = (e: MouseEvent) => {
-      setCursor((prev) => {
-        const cursor: Animate = { ...prev };
+      setCursor((prev: any) => {
+        const cursor: any = { ...prev };
 
         cursor.x = e.clientX;
         cursor.y = e.clientY;
@@ -75,9 +73,10 @@ export function Cursor() {
     };
 
     const onMouseOut = (e: MouseEvent) => {
+      // @ts-expect-error
       const from = e.relatedTarget ?? e.toElement;
       if (!from) {
-        setCursor((prev) => ({
+        setCursor((prev: any) => ({
           ...prev,
           scale: 0,
         }));
