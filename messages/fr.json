@@ -11,5 +11,20 @@
       "contact": "Me contacter",
       "resume": "Télécharger mon CV"
     }
+  },
+  "Common": {
+    "theme": {
+      "light": "Clair",
+      "dark": "Sombre",
+      "system": "Système"
+    },
+    "theme-toggle": "Changer le thème"
+  },
+  "Contact": {
+    "success": "Message envoyé !",
+    "email": "Adresse email",
+    "message": "Message",
+    "submit": "Envoyer",
+    "email-placeholder": "jeandupont@exemple.com"
   }
 }

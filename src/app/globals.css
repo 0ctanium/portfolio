@@ -6,8 +6,7 @@
 @custom-variant dark (&:is(.dark *));
 
 * {
-  @apply drag-none select-none;
-  cursor: none;
+  @apply drag-none select-none cursor-none;
 }
 
 @theme inline {

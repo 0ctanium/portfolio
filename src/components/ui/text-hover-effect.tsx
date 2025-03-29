@@ -60,7 +60,7 @@ export const TextHoverEffect = ({
       cy="50%"
       r="25%"
     >
-      {hovered && <>{gradient}</>}
+      {gradient}
     </linearGradient>
   );
 
@@ -167,7 +167,15 @@ export const TextHoverEffect = ({
         className="select-none"
       >
         <defs>
-          {linearGradient}
+          <linearGradient
+            id={`${generatedId}-textGradient`}
+            gradientUnits="userSpaceOnUse"
+            cx="50%"
+            cy="50%"
+            r="25%"
+          >
+            {hovered && gradient}
+          </linearGradient>
           {textMask}
           {gradientMask}
         </defs>

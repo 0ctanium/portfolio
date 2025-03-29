@@ -11,5 +11,20 @@
       "contact": "Contact me",
       "resume": "Download my resume"
     }
+  },
+  "Common": {
+    "theme": {
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System"
+    },
+    "theme-toggle": "Toggle theme"
+  },
+  "Contact": {
+    "success": "Message sent !",
+    "email": "Email Address",
+    "message": "Message",
+    "submit": "Submit",
+    "email-placeholder": "jhondoe@example.com"
   }
 }

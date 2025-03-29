@@ -1,10 +1,11 @@
 "use client";
 
+import { useMediaQuery } from "@/hooks/use-media-query";
 import { AnimatePresence, motion } from "motion/react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
-export function Cursor() {
+function CursorImpl() {
   const { resolvedTheme: theme } = useTheme();
   const [outOfView, setOutOfView] = useState(false);
   const [pressed, setPressed] = useState(false);
@@ -18,7 +19,9 @@ export function Cursor() {
       let light = false;
 
       if (e.target instanceof Element) {
-        const closedClickableElement = e.target.closest("a, [role=button]");
+        const closedClickableElement = e.target.closest(
+          "a, button, [role=button]"
+        );
 
         // Pointer
         if (closedClickableElement) {
@@ -73,7 +76,7 @@ export function Cursor() {
 
   return (
     <motion.div
-      className="pointer-events-none fixed z-50 "
+      className="pointer-events-none fixed z-[5000]"
       animate={{
         ...cursor,
         scale: outOfView ? 0 : pressed ? 0.75 : 1,
@@ -87,19 +90,20 @@ export function Cursor() {
         variants={{
           default: {
             scale: 1,
-            borderTopRightRadius: 99999999999999,
           },
           pointer: {
             scale: 1.25,
-            borderTopRightRadius: 4,
           },
         }}
         animate={type}
+        style={{
+          borderTopRightRadius: type === "pointer" ? "0.25rem" : undefined,
+        }}
         transition={{
           type: "linear",
           duration: 0.1,
         }}
-        className="size-[16px] block rounded-full bg-black dark:bg-white"
+        className="size-[16px] block rounded-full transition-all bg-black dark:bg-white"
       >
         <AnimatePresence>
           {light && (
@@ -119,4 +123,12 @@ export function Cursor() {
       </motion.div>
     </motion.div>
   );
+}
+
+export function Cursor() {
+  const mouse = useMediaQuery("(pointer:fine)");
+
+  if (!mouse) return;
+
+  return <CursorImpl />;
 }

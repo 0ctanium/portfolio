@@ -1,8 +1,13 @@
+import { ContactModal } from "@/components/contact-modal";
 import { ModeToggle } from "@/components/theme-toggle";
 import { SparklesCore } from "@/components/ui/sparkles";
 import { TextHoverEffect } from "@/components/ui/text-hover-effect";
 import { FileUser, Github, Linkedin, Mails } from "lucide-react";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import {
+  getTranslations,
+  setRequestLocale,
+  getMessages,
+} from "next-intl/server";
 import { CardSections, CardSectionsItem } from "./card-section";
 import { HeroTitle, Shake } from "./hero";
 
@@ -13,6 +18,7 @@ export default async function Home({
 }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Home" });
+  const messages = (await getMessages({ locale })) as IntlMessages;
 
   // Enable static rendering
   setRequestLocale(locale);
@@ -50,6 +56,7 @@ export default async function Home({
 
       <CardSections>
         <a
+          className="size-full"
           href="https://www.linkedin.com/in/benjaminlepas/"
           target="blank"
           rel="noopener noreferrer"
@@ -58,7 +65,7 @@ export default async function Home({
             title={t("cards.linkedin")}
             icon={<Linkedin />}
             effect={{
-              containerClassName: "bg-[#333] dark:bg-white",
+              containerClassName: "dark:bg-[#333] bg-white",
               colors: [
                 [0, 119, 181],
                 [0, 160, 220],
@@ -68,6 +75,7 @@ export default async function Home({
         </a>
 
         <a
+          className="size-full"
           href="https://github.com/0ctanium"
           target="blank"
           rel="noopener noreferrer"
@@ -76,7 +84,7 @@ export default async function Home({
             title={t("cards.github")}
             icon={<Github />}
             effect={{
-              containerClassName: "bg-[#2b3137] dark:bg-white",
+              containerClassName: "dark:bg-[#2b3137] bg-white",
               colors: [
                 [47, 187, 79],
                 [13, 116, 231],
@@ -85,22 +93,30 @@ export default async function Home({
           />
         </a>
 
-        <CardSectionsItem
-          title={t("cards.contact")}
-          icon={<Mails />}
-          effect={{
-            containerClassName: "bg-sky-600",
-            colors: [[125, 211, 252]],
-          }}
-        />
+        <ContactModal t={messages.Contact}>
+          <CardSectionsItem
+            title={t("cards.contact")}
+            icon={<Mails />}
+            effect={{
+              containerClassName: "dark:bg-black bg-white",
+              colors: [
+                [240, 58, 71],
+                [175, 91, 91],
+              ],
+            }}
+          />
+        </ContactModal>
 
-        <a href="/resume.pdf" download>
+        <a className="size-full" href="/resume.pdf" download>
           <CardSectionsItem
             title={t("cards.resume")}
             icon={<FileUser />}
             effect={{
-              containerClassName: "bg-sky-600",
-              colors: [[125, 211, 252]],
+              containerClassName: "dark:bg-black bg-white",
+              colors: [
+                [207, 255, 179],
+                [173, 226, 93],
+              ],
             }}
           />
         </a>

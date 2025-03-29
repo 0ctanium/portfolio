@@ -22,7 +22,7 @@ export const Card = ({
     <Comp
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="border border-black/[0.2] group/canvas-card flex items-center justify-center dark:border-white/[0.2] w-full mx-auto px-4 py-12 relative relative"
+      className="size-full border border-black/[0.2] group/canvas-card flex items-center justify-center dark:border-white/[0.2] w-full mx-auto px-4 py-12 relative"
     >
       <div>
         <Icon className="z-10 absolute h-6 w-6 -top-3 -left-3 dark:text-white text-black" />

@@ -1,7 +1,4 @@
-"use client";
-
 import { Moon, Sun } from "lucide-react";
-import { useTheme } from "next-themes";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -10,10 +7,14 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { getTranslations } from "next-intl/server";
 import { ComponentProps } from "react";
+import { ThemeButton } from "./theme-button";
 
-export function ModeToggle(props: Partial<ComponentProps<typeof Button>>) {
-  const { setTheme } = useTheme();
+export async function ModeToggle(
+  props: Partial<ComponentProps<typeof Button>>
+) {
+  const t = await getTranslations("Common");
 
   return (
     <DropdownMenu>
@@ -21,18 +22,18 @@ export function ModeToggle(props: Partial<ComponentProps<typeof Button>>) {
         <Button variant="outline" size="icon" {...props}>
           <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
           <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-          <span className="sr-only">Toggle theme</span>
+          <span className="sr-only">{t("theme-toggle")}</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme("light")}>
-          Light
+        <DropdownMenuItem asChild className="w-full">
+          <ThemeButton theme="light">{t("theme.light")}</ThemeButton>
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")}>
-          Dark
+        <DropdownMenuItem asChild className="w-full">
+          <ThemeButton theme="dark">{t("theme.dark")}</ThemeButton>
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")}>
-          System
+        <DropdownMenuItem asChild className="w-full">
+          <ThemeButton theme="system">{t("theme.system")}</ThemeButton>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
