@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
 import { useEffect, useRef } from "react";

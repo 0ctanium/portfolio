@@ -44,7 +44,7 @@ function CursorImpl() {
     };
 
     const onMouseOut = (e: MouseEvent) => {
-      // @ts-expect-error
+      // @ts-expect-error Old types
       const from = e.relatedTarget ?? e.toElement;
       if (!from) {
         setOutOfView(true);
