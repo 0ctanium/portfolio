@@ -60,7 +60,7 @@ export default async function Home({
           data-umami-event="LinkedIn CTA"
           className="size-full"
           href="https://www.linkedin.com/in/benjaminlepas/"
-          target="blank"
+          target="_blank"
           rel="noopener noreferrer"
         >
           <CardSectionsItem
@@ -81,7 +81,7 @@ export default async function Home({
           data-umami-event="Github CTA"
           className="size-full"
           href="https://github.com/0ctanium"
-          target="blank"
+          target="_blank"
           rel="noopener noreferrer"
         >
           <CardSectionsItem
