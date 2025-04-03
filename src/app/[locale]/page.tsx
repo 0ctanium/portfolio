@@ -116,6 +116,7 @@ export default async function Home({
           data-umami-event="Download Resume"
           className="size-full"
           href="/resume.pdf"
+          target="_blank"
           download
         >
           <CardSectionsItem
