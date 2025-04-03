@@ -63,6 +63,8 @@ export function ContactModal({
     <Dialog.Root onOpenChange={onOpenChange} open={open}>
       <Dialog.Trigger asChild>
         <motion.button
+          id="contact-button"
+          data-umami-event="Open contact modal"
           variants={{
             close: {},
             open: anchorTranslation,

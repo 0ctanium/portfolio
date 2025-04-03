@@ -56,6 +56,8 @@ export default async function Home({
 
       <CardSections>
         <a
+          id="linkedin-button"
+          data-umami-event="LinkedIn CTA"
           className="size-full"
           href="https://www.linkedin.com/in/benjaminlepas/"
           target="blank"
@@ -75,6 +77,8 @@ export default async function Home({
         </a>
 
         <a
+          id="github-button"
+          data-umami-event="Github CTA"
           className="size-full"
           href="https://github.com/0ctanium"
           target="blank"
@@ -107,7 +111,13 @@ export default async function Home({
           />
         </ContactModal>
 
-        <a className="size-full" href="/resume.pdf" download>
+        <a
+          id="resume-button"
+          data-umami-event="Download Resume"
+          className="size-full"
+          href="/resume.pdf"
+          download
+        >
           <CardSectionsItem
             title={t("cards.resume")}
             icon={<FileUser />}
